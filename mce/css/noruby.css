@@ -1,0 +1,10 @@
+@chaset "UTF-8";
+rt{
+	font-size:0.75em;
+}
+rt:before{
+	content:"(";
+}
+rt:after{
+	content:")";
+}

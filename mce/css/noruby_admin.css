@@ -1,0 +1,14 @@
+@chaset "UTF-8";
+rt{
+	font-size:0.75em;
+}
+rt:before{
+	content:"(";
+}
+rt:after{
+	content:")";
+}
+ruby{
+	border:1px solid #ddd;
+	padding:0 1px;
+}
