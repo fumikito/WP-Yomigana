@@ -101,17 +101,20 @@ function wp_yomigana_language($languages){
 
 /**
  * ルビタグをサポートしないブラウザ向けに、管理画面専用のCSSを読み込む
+ * 
+ * ※CSSが必要なのはTinyMCEが置換するiframeの中なので、ifram内にrubyタグを挿入する
+ * 
  * @param string $css
  * @return string
  */
 function wp_yomigana_css_admin($css)
 {
-	$url = (is_ssl()) ? preg_replace("/^http:/", "https:", get_bloginfo("url")) : get_bloginfo("url");
-	$url .= "/wp-content/plugins/wp-yomigana/mce/css/noruby_admin.css?v=".WP_YOMIGANA_VERSION;
+	$url = plugin_dir_url(__FILE__)."mce/css/noruby_admin.css?v=".WP_YOMIGANA_VERSION;
 	?>
 <script type="text/javascript">
 //<![CDATA[
 jQuery(function(event){
+	//Loop untile tinyMCE has been ready.
 	var timer = setInterval(function(){
 		if(jQuery("#content_ifr").length > 0){
 			clearInterval(timer);
@@ -132,8 +135,21 @@ jQuery(function(event){
  * @return boolean
  */
 function wp_yomigana_ruby_support(){
-	global $is_gecko, $is_opera;
-	if($is_gecko || $is_opera){
+	/*
+	 * -------OK
+	 * IE 6~
+	 * Mac Safari 5.0~
+	 * Mac Chrome 11.0~
+	 * iPad 4.3~
+	 * 
+	 * -------NG
+	 * Mac FireFox ~5
+	 * Mac Opera ~11.50
+	 * iPhone ~4.2(3G)
+	 */
+	global $is_gecko, $is_opera, $is_iphone;
+	//return true;
+	if($is_opera || $is_gecko || $is_iphone){
 		return false;
 	}else{
 		return true;

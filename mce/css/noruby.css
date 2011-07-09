@@ -1,10 +1,21 @@
 @chaset "UTF-8";
+ruby{
+	overflow:hidden;
+	display:inline-table;
+	line-height:inherit;
+	vertical-align:text-bottom;
+	border-collapse:collapse;
+	line-height:1
+}
+rb{
+	line-height:1.2;
+	text-align:center;
+	display:table-row-group;
+}
 rt{
-	font-size:0.75em;
-}
-rt:before{
-	content:"(";
-}
-rt:after{
-	content:")";
+	font-size:0.5em;
+	display:table-header-group;
+	text-align:center;
+	text-justify:distribute-all-lines;
+	line-height:1;
 }

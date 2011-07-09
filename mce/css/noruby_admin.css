@@ -9,6 +9,6 @@ rt:after{
 	content:")";
 }
 ruby{
-	border:1px solid #ddd;
+	border:1px dotted #f0f0f0;
 	padding:0 1px;
 }
