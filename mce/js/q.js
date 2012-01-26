@@ -14,7 +14,7 @@ var yomiganaManager = {
 		
 		//更新と新規の場合
 		if(t.target){
-			document.getElementById("moji").value = t.target.firstChild.nodeValue;
+			document.getElementById("moji").value = t.target.firstChild;
 			document.getElementById("yomi").value = t.target.firstChild.nextSibling.innerHTML;
 			document.getElementById("delete").disabled = false;
 		}else{
@@ -28,13 +28,16 @@ var yomiganaManager = {
 		//ルビ用文字の取得
 		var ruby_body = document.getElementById("moji").value;
 		var ruby_text = document.getElementById("yomi").value;
-		var tag = yomiganaManager.createRuby(ruby_body, ruby_text);
+		//すでにルビを作成済みの場合
 		if(t.target){
-			//すでにルビを作成済みの場合
-			t.dom.replace(tag, t.target);
-		}else{
-			//ルビ新規作成の場合
-			t.s.setNode(tag);
+			t.dom.replace();
+			t.target.nextSibling.innerHTML = ruby_text;
+			t.target.innerHTML = ruby_body;
+		}
+		//ルビ新規作成の場合
+		else{
+			var tag = "<ruby>" + t.s.getContent() + "<rt>" + ruby_text + "</rt></ruby>";
+			t.s.setContent(tag);
 		}
 		tinyMCEPopup.close();
 	},
@@ -42,19 +45,10 @@ var yomiganaManager = {
 	onDelete: function(t){
 		//タグを脱がせる
 		if(t.target){
-			var rubyTxt = t.target.firstChild.nodeValue;
-			t.dom.replace(document.createTextNode(rubyTxt), t.target, false);
+			var str = t.target.innerHTML;
+			var p = t.dom.getParent(t.target, "ruby");
+			t.dom.replace(document.createTextNode(str), p, false);
 		}
 		tinyMCEPopup.close();
-	},
-	
-	createRuby: function(parent, child){
-		var ruby = document.createElement('ruby');
-		var rt = document.createElement('rt');
-		rt.innerHTML = child;
-		var rb = document.createTextNode(parent);
-		ruby.appendChild(rb);
-		ruby.appendChild(rt);
-		return ruby;
 	}
 };
