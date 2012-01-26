@@ -6,38 +6,32 @@ var yomiganaManager = {
 		t.s = tinyMCEPopup.editor.selection;
 		t.dom = tinyMCEPopup.dom;
 		//すでにrubyタグがつけられている場合はrbタグを取得
-		if(t.dom.is(t.s.getNode(), "rt")){
-			t.target = t.dom.getParent(t.s.getNode(), 'RUBY');
-		}else if(t.dom.is(t.s.getNode(), "ruby")){
+		if(t.dom.is(t.s.getNode(), "q")){
 			t.target = t.s.getNode();
 		}
 		
 		//更新と新規の場合
 		if(t.target){
-			document.getElementById("moji").value = t.target.firstChild;
-			document.getElementById("yomi").value = t.target.firstChild.nextSibling.innerHTML;
+			document.getElementById("citeText").value = t.target.cite;
 			document.getElementById("delete").disabled = false;
-		}else{
-			document.getElementById("moji").value = t.s.getContent();
 		}
 		//フォームにフォーカスを当てる
-		document.getElementById("yomi").focus();
+		document.getElementById("citeText").focus();
 	},
 	
 	onSubmit: function(t){
-		//ルビ用文字の取得
-		var ruby_body = document.getElementById("moji").value;
-		var ruby_text = document.getElementById("yomi").value;
-		//すでにルビを作成済みの場合
+		//引用文の取得
+		var citeText = document.getElementById("citeText").value;
+		//すでにqタグになっていた場合
 		if(t.target){
-			t.dom.replace();
-			t.target.nextSibling.innerHTML = ruby_text;
-			t.target.innerHTML = ruby_body;
+			t.target.cite = citeText;
 		}
 		//ルビ新規作成の場合
 		else{
-			var tag = "<ruby>" + t.s.getContent() + "<rt>" + ruby_text + "</rt></ruby>";
-			t.s.setContent(tag);
+			var q = document.createElement('q');
+			q.cite = citeText;
+			q.innerHTML = t.s.getContent();
+			t.s.setNode(q);
 		}
 		tinyMCEPopup.close();
 	},
@@ -46,8 +40,7 @@ var yomiganaManager = {
 		//タグを脱がせる
 		if(t.target){
 			var str = t.target.innerHTML;
-			var p = t.dom.getParent(t.target, "ruby");
-			t.dom.replace(document.createTextNode(str), p, false);
+			t.dom.replace(document.createTextNode(str), t.target, false);
 		}
 		tinyMCEPopup.close();
 	}

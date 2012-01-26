@@ -11,7 +11,6 @@ var yomiganaManager = {
 		}else if(t.dom.is(t.s.getNode(), "ruby")){
 			t.target = t.s.getNode();
 		}
-		
 		//更新と新規の場合
 		if(t.target){
 			document.getElementById("moji").value = t.target.firstChild.nodeValue;

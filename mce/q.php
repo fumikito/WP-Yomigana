@@ -27,9 +27,9 @@ $tiny_mce_inc_dir .= "/wp-includes/js/tinymce/";
 		<div id="general_panel" class="panel current">
 			<table border="0" cellpadding="4" cellspacing="0">
                     <tr>
-                        <td><label for="moji">{#yomigana_dlg.qCite}</label></td>
+                        <td><label for="citeText">{#yomigana_dlg.qCite}</label></td>
                         <td class="nowrap">
-                            <input id="moji" name="moji" type="text" value="" class="mceFocus" readonly="readonly" />
+                            <input id="citeText" name="citeText" type="text" value="" class="mceFocus" />
                         </td>
                     </tr>
                     <tr style="text-align:right">

@@ -23,7 +23,8 @@
 				editor.windowManager.open({
 					file: url + '/q.php',
 					width: 350,
-					height: 100
+					height: 150,
+					inline: 1
 				},{
 					plugin_url: url
 				});
@@ -53,11 +54,13 @@
 			});
 
 			editor.onNodeChange.add(function(e,d,g,f){
-				g = e.dom.getParent(g,"RUBY,SMALL");
+				g = e.dom.getParent(g,"RUBY,SMALL,Q");
 				d.setDisabled("ruby",f);
 				d.setActive("ruby",0);
 				d.setDisabled("small",f);
 				d.setActive("small",0);
+				d.setDisabled("q",f);
+				d.setActive("q",0);
 				if(g){
 					do{
 						d.setDisabled(g.nodeName.toLowerCase(),0);
