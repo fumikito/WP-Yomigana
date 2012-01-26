@@ -7,5 +7,6 @@ tinyMCE.addI18n('ja.yomigana_dlg',{
 	smallTitle: '添え書き（small）',
 	qTitle: '引用文',
 	qDesc: '引用文を挿入',
-	qCite: '引用元（URL・文献名）'
+	qCite: '引用元（URL・文献名）',
+	dlTitle: '定義リスト'
 });

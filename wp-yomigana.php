@@ -210,7 +210,9 @@ class WP_Yomigana{
 	 */
 	function activate($plugin_array)
 	{
-		$plugin_array['yomigana'] = plugin_dir_url(__FILE__).'/mce/editor_plugin.js';
+		//DEBUG
+		$src = $_SERVER['SERVER_NAME'] == 'takahashifumiki.local' ? 'editor_plugin_src.js' : 'editor_plugin.js';
+		$plugin_array['yomigana'] = plugin_dir_url(__FILE__).'/mce/'.$src;
 		return $plugin_array;
 	}
 	
