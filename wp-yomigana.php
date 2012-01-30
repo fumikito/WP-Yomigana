@@ -3,7 +3,7 @@
 Plugin Name: WP-Yomigana
 Plugin URI: http://github.com/fumikito/WP-Yomigana
 Description: TinyMCEでルビを入力できるようにします。
-Version: 1.0
+Version: 1.1
 Author: Takahashi Fumiki
 Author URI: http://takahashifumiki.com
 
@@ -22,7 +22,7 @@ class WP_Yomigana{
 	/**
 	 * @var string
 	 */
-	const VERSION = '1.0';
+	const VERSION = '1.1';
 	
 	/**
 	 * @var array
@@ -52,7 +52,7 @@ class WP_Yomigana{
 		//TinyMCEの設定
 		add_action('init', array($this, 'init'));
 		//各種フィルター
-		add_filter('', array($this, 'body_class'));
+		add_filter('body_class', array($this, 'body_class'));
 	}
 	
 	/**
@@ -138,6 +138,16 @@ class WP_Yomigana{
 			</table>
 			<?php submit_button();?>
 		</form>
+		<h3>ルビをサポートしないブラウザに対して</h3>
+		<p>ルビをサポートしないブラウザ（Opera, Firefox）に対してはbodyタグにno-rubyクラスを付与します。お使いのテーマのstyle.cssに下記のコードを記入すれば、インラインで表示されることを防げます。</p>
+		<pre>
+			.no-ruby rt:before{
+				content: '（';
+			}
+			.no-ruby rt:after{
+				content: '）';
+			}
+		</pre>
 		</div>
 		<?php
 	}
@@ -259,6 +269,17 @@ class WP_Yomigana{
 		return $css;
 	}
 	
+	/**
+	 * ルビをサポートしないブラウザ向けにbody_classに書き込み
+	 * @param array $classes
+	 * @return array 
+	 */
+	public function body_class($classes){
+		if($this->is_ruby_disabled()){
+			$classes[] = 'no-ruby';
+		}
+		return $classes;
+	}
 	
 	/**
 	 * ルビタグをサポートしないブラウザ（Opera, FF）か否か
