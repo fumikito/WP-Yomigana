@@ -3,7 +3,7 @@ Contributors: Takahashi_Fumiki
 Tags: wysiwyg, formatting, tinymce, write, edit, post
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 == Description ==
 
@@ -22,6 +22,10 @@ Stable tag: 1.2
 4. Activate the plugin.
 
 == Changelog ==
+
+= 1.2.1 =
+
+Bugfix. ファイルを追加するのを忘れました。
 
 = 1.2 =
 
