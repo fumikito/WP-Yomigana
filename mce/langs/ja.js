@@ -3,6 +3,7 @@ tinyMCE.addI18n('ja.yomigana_dlg',{
 	rubyDesc: 'ルビを編集してください',
 	rubyParent: '親文字',
 	rubyChild: 'ルビ',
+	rpSupport: 'rpタグのサポート',
 	deleteLabel: '削除',
 	smallTitle: '添え書き（small）',
 	qTitle: '引用文',

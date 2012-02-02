@@ -22,7 +22,7 @@ class WP_Yomigana{
 	/**
 	 * @var string
 	 */
-	const VERSION = '1.1';
+	const VERSION = '1.2';
 	
 	/**
 	 * @var array
@@ -139,13 +139,19 @@ class WP_Yomigana{
 			<?php submit_button();?>
 		</form>
 		<h3>ルビをサポートしないブラウザに対して</h3>
-		<p>ルビをサポートしないブラウザ（Opera, Firefox）に対してはbodyタグにno-rubyクラスを付与します。お使いのテーマのstyle.cssに下記のコードを記入すれば、インラインで表示されることを防げます。</p>
+		<p>
+			ルビをサポートしないブラウザ（Opera, Firefox）に対してはbodyタグにno-rubyクラスを付与します。お使いのテーマのstyle.cssに下記のコードを記入すれば、インラインで表示されることを防げます。<br />
+			<strong>Notice: </strong>Microsoft Wordなどからコピー＆ペーストした場合は自動でrpタグが入ります。括弧が2重になるのを防ぐために、rpタグの表示をオフにした方がいいかもしれません。
+		</p>
 		<pre>
 			.no-ruby rt:before{
 				content: '（';
 			}
 			.no-ruby rt:after{
 				content: '）';
+			}
+			.no-ruby rp{
+				display:none;
 			}
 		</pre>
 		</div>
@@ -233,9 +239,9 @@ class WP_Yomigana{
 	 */
 	public function mce_init($init_arr){
 		if(!empty($init_arr["extended_valid_elements"])){
-			$init_arr["extended_valid_elements"] .= ",ruby[id|class],rt";
+			$init_arr["extended_valid_elements"] .= ",ruby[id|class],rt,rp";
 		}else{
-			$init_arr["extended_valid_elements"] .= "ruby[id|class],rt";
+			$init_arr["extended_valid_elements"] .= "ruby[id|class],rt,rp";
 		}
 		return $init_arr;
 	}

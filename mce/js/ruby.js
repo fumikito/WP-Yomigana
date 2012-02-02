@@ -6,15 +6,19 @@ var yomiganaManager = {
 		t.s = tinyMCEPopup.editor.selection;
 		t.dom = tinyMCEPopup.dom;
 		//すでにrubyタグがつけられている場合はrbタグを取得
-		if(t.dom.is(t.s.getNode(), "rt")){
+		if(t.dom.is(t.s.getNode(), "rt,rp")){
 			t.target = t.dom.getParent(t.s.getNode(), 'RUBY');
 		}else if(t.dom.is(t.s.getNode(), "ruby")){
 			t.target = t.s.getNode();
 		}
 		//更新と新規の場合
 		if(t.target){
-			document.getElementById("moji").value = t.target.firstChild.nodeValue;
-			document.getElementById("yomi").value = t.target.firstChild.nextSibling.innerHTML;
+			document.getElementById("moji").value = t.target.firstChild.nodeValue; //親文字の取得
+			document.getElementById("yomi").value = t.dom.getNext(t.target.firstChild, 'rt').innerHTML; //ルビ文字
+			if(t.dom.getNext(t.target.firstChild, 'rp')){
+				//rpタグのサポートにチェック
+				document.getElementById('need-paren').checked = true;
+			}
 			document.getElementById("delete").disabled = false;
 		}else{
 			document.getElementById("moji").value = t.s.getContent();
@@ -27,7 +31,7 @@ var yomiganaManager = {
 		//ルビ用文字の取得
 		var ruby_body = document.getElementById("moji").value;
 		var ruby_text = document.getElementById("yomi").value;
-		var tag = yomiganaManager.createRuby(ruby_body, ruby_text);
+		var tag = yomiganaManager.createRuby(ruby_body, ruby_text, document.getElementById('need-paren').checked);
 		if(t.target){
 			//すでにルビを作成済みの場合
 			t.dom.replace(tag, t.target);
@@ -47,13 +51,23 @@ var yomiganaManager = {
 		tinyMCEPopup.close();
 	},
 	
-	createRuby: function(parent, child){
+	createRuby: function(parent, child, needRP){
 		var ruby = document.createElement('ruby');
-		var rt = document.createElement('rt');
-		rt.innerHTML = child;
 		var rb = document.createTextNode(parent);
 		ruby.appendChild(rb);
-		ruby.appendChild(rt);
+		var rt = document.createElement('rt');
+		rt.innerHTML = child;
+		if(needRP){
+			var rp1 = document.createElement('rp');
+			rp1.innerHTML = '(';
+			var rp2 = document.createElement('rp');
+			rp2.innerHTML = ')';
+			ruby.appendChild(rp1);
+			ruby.appendChild(rt);
+			ruby.appendChild(rp2);
+		}else{
+			ruby.appendChild(rt);
+		}
 		return ruby;
 	}
 };

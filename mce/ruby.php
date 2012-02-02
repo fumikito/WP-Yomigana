@@ -38,8 +38,9 @@ $tiny_mce_inc_dir .= "/wp-includes/js/tinymce/";
                         	<input id="yomi" name="yomi" type="text" value="" class="mceFocus" />
                         </td>
                     </tr>
-                    <tr style="text-align:right">
-                    	<td colspan="2"><input type="button" name="delete" id="delete" value="{#yomigana_dlg.deleteLabel}" onclick="yomiganaManager.onDelete(yomiganaManager);" disabled="disabled" /></td>
+                    <tr>
+						<td><label><input id="need-paren" type="checkbox" value="1" />{#yomigana_dlg.rpSupport}</label></td>
+                    	<td style="text-align:right"><input type="button" name="delete" id="delete" value="{#yomigana_dlg.deleteLabel}" onclick="yomiganaManager.onDelete(yomiganaManager);" disabled="disabled" /></td>
                     </tr>
             </table>
 		</div>

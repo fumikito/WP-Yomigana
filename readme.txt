@@ -2,8 +2,8 @@
 Contributors: Takahashi_Fumiki
 Tags: wysiwyg, formatting, tinymce, write, edit, post
 Requires at least: 3.0
-Tested up to: 3.2.1
-Stable tag: 1.1
+Tested up to: 3.3.1
+Stable tag: 1.2
 
 == Description ==
 
@@ -22,6 +22,15 @@ Stable tag: 1.1
 4. Activate the plugin.
 
 == Changelog ==
+
+= 1.2 =
+
+MS Wordからコピペしたときにrpタグがついてしまうので、サポートしました。
+
+= 1.1 =
+
+rubyをサポートしないブラウザに対してno-rubyクラスを出力するようにしました。
+
 
 = 1.0 =
 

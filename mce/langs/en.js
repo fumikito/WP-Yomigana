@@ -3,6 +3,7 @@ tinyMCE.addI18n('en.yomigana_dlg',{
 	rubyDesc: 'Edit ruby string',
 	rubyParent: 'Parent',
 	rubyChild: 'Ruby text',
+	rpSupport: 'Supports RP tag',
 	deleteLabel: 'Delete',
 	smallTitle: 'Notation(small)',
 	qTitle: 'Quote',
