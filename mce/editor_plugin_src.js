@@ -1,5 +1,6 @@
 (function(){
 	
+	
 	tinymce.create("tinymce.plugins.yomigana",{
 		
 		getInfo:function(){
@@ -15,6 +16,8 @@
 		init:function(editor,url){
 			//ルビ
 			editor.addCommand("Ruby",function(){
+				editor.focus();
+				editor.ieBookmark = editor.selection.getBookmark(1);
 				editor.windowManager.open(
 					{
 						file: url + "/ruby.php",
@@ -34,6 +37,8 @@
 			});
 			//qタグ
 			editor.addCommand('inlineQ', function(){
+				editor.focus();
+				editor.ieBookmark = editor.selection.getBookmark(1);
 				editor.windowManager.open({
 					file: url + '/q.php',
 					width: 350,

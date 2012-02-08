@@ -3,25 +3,33 @@ Contributors: Takahashi_Fumiki
 Tags: wysiwyg, formatting, tinymce, write, edit, post
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 == Description ==
 
 このプラグインはWordPressのwysiwygエディターであるTinyMCEにrubyタグを入力する機能を追加します。
 
-= Some of the features added by this plugin =
+= このプラグインの機能 =
 
+* ビジュアルエディタにルビボタンを追加します。テキストを選択してルビボタンをクリックすると、ルビが入力できます。
 * ルビをサポートしないブラウザ向けにbodyタグにno-rubyクラスを追加します。スタリングの詳細は管理画面を見てください。
 * ついでにインライン引用（qタグ）、注釈（smallタグ）、定義リスト（DL）も入力できるようになります。
+* テキストを選択するときは慎重に！
 
 == Installation ==
 
-1. Download.
-2. Unzip.
-3. Upload to the plugins directory (wp-content/plugins).
-4. Activate the plugin.
+1. ダウンロードする
+2. zipファイルを解凍する
+3. プラグインディレクトリにアップロードする(wp-content/plugins)。
+4. プラグインを有効化する
+
+特にこだわりがないのであれば、管理画面 > プラグイン > 新規追加からインストールすることをお勧めします。
 
 == Changelog ==
+
+= 1.2.2 =
+
+Bugfix. IEでルビが入力できないことに気づいたので、直しました。ただし、全体的にややバギーです。気をつけて使ってください。
 
 = 1.2.1 =
 
@@ -38,8 +46,8 @@ rubyをサポートしないブラウザに対してno-rubyクラスを出力す
 
 = 1.0 =
 
-Upload to Official Repository
+公式リポジトリに追加
 
 = 0.8 =
 
-This plugin was born.
+プラグイン誕生

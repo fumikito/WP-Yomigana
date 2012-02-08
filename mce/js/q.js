@@ -5,11 +5,13 @@ var yomiganaManager = {
 	onLoad: function (t){
 		t.s = tinyMCEPopup.editor.selection;
 		t.dom = tinyMCEPopup.dom;
-		//すでにrubyタグがつけられている場合はrbタグを取得
+		if(tinymce.isIE){
+			tinyMCEPopup.editor.selection.moveToBookmark(tinyMCEPopup.editor.ieBookmark);
+		}
+		//すでにqタグがつけられている場合はqタグを取得
 		if(t.dom.is(t.s.getNode(), "q")){
 			t.target = t.s.getNode();
 		}
-		
 		//更新と新規の場合
 		if(t.target){
 			document.getElementById("citeText").value = t.target.cite;
@@ -22,14 +24,16 @@ var yomiganaManager = {
 	onSubmit: function(t){
 		//引用文の取得
 		var citeText = document.getElementById("citeText").value;
-		//すでにqタグになっていた場合
 		if(t.target){
+			//すでにqタグになっていた場合
 			t.target.cite = citeText;
-		}
-		//ルビ新規作成の場合
-		else{
+		}else{
+			//ルビ新規作成の場合
 			var q = document.createElement('q');
 			q.cite = citeText;
+			if(tinymce.isIE){
+				tinyMCEPopup.editor.selection.moveToBookmark(tinyMCEPopup.editor.ieBookmark);
+			}
 			q.innerHTML = t.s.getContent();
 			t.s.setNode(q);
 		}
@@ -40,6 +44,9 @@ var yomiganaManager = {
 		//タグを脱がせる
 		if(t.target){
 			var str = t.target.innerHTML;
+			if(tinymce.isIE){
+				tinyMCEPopup.editor.selection.moveToBookmark(tinyMCEPopup.editor.ieBookmark);
+			}
 			t.dom.replace(document.createTextNode(str), t.target, false);
 		}
 		tinyMCEPopup.close();

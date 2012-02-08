@@ -3,7 +3,7 @@
 Plugin Name: WP-Yomigana
 Plugin URI: http://github.com/fumikito/WP-Yomigana
 Description: TinyMCEでルビを入力できるようにします。
-Version: 1.2.1
+Version: 1.2.2
 Author: Takahashi Fumiki
 Author URI: http://takahashifumiki.com
 
@@ -22,7 +22,7 @@ class WP_Yomigana{
 	/**
 	 * @var string
 	 */
-	const VERSION = '1.2.1';
+	const VERSION = '1.2.2';
 	
 	/**
 	 * @var array

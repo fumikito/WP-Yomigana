@@ -5,12 +5,16 @@ var yomiganaManager = {
 	onLoad: function (t){
 		t.s = tinyMCEPopup.editor.selection;
 		t.dom = tinyMCEPopup.dom;
+		if(tinymce.isIE){
+			tinyMCEPopup.editor.selection.moveToBookmark(tinyMCEPopup.editor.ieBookmark);
+		}
 		//すでにrubyタグがつけられている場合はrbタグを取得
-		if(t.dom.is(t.s.getNode(), "rt,rp")){
+		if(t.dom.is(t.s.getNode(), "RT,RP")){
 			t.target = t.dom.getParent(t.s.getNode(), 'RUBY');
-		}else if(t.dom.is(t.s.getNode(), "ruby")){
+		}else if(t.dom.is(t.s.getNode(), "RUBY")){
 			t.target = t.s.getNode();
 		}
+		
 		//更新と新規の場合
 		if(t.target){
 			document.getElementById("moji").value = t.target.firstChild.nodeValue; //親文字の取得
@@ -32,6 +36,9 @@ var yomiganaManager = {
 		var ruby_body = document.getElementById("moji").value;
 		var ruby_text = document.getElementById("yomi").value;
 		var tag = yomiganaManager.createRuby(ruby_body, ruby_text, document.getElementById('need-paren').checked);
+		if(tinymce.isIE){
+			tinyMCEPopup.editor.selection.moveToBookmark(tinyMCEPopup.editor.ieBookmark);
+		}
 		if(t.target){
 			//すでにルビを作成済みの場合
 			t.dom.replace(tag, t.target);
@@ -45,6 +52,9 @@ var yomiganaManager = {
 	onDelete: function(t){
 		//タグを脱がせる
 		if(t.target){
+			if(tinymce.isIE){
+				tinyMCEPopup.editor.selection.moveToBookmark(tinyMCEPopup.editor.ieBookmark);
+			}
 			var rubyTxt = t.target.firstChild.nodeValue;
 			t.dom.replace(document.createTextNode(rubyTxt), t.target, false);
 		}
