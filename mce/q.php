@@ -3,8 +3,7 @@
 //WordPressの初期化
 require_once(dirname(dirname(dirname(dirname(dirname(__FILE__))))).DIRECTORY_SEPARATOR."wp-load.php");
 
-$tiny_mce_inc_dir = is_ssl() ? preg_replace("/^http:/", "https:", get_bloginfo("url")) : get_bloginfo("url");
-$tiny_mce_inc_dir .= "/wp-includes/js/tinymce/";
+$tiny_mce_inc_dir = home_url('/wp-includes/js/tinymce/');
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
