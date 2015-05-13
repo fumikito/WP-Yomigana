@@ -2,9 +2,10 @@
 
 Contributors: Takahashi_Fumiki  
 Tags: wysiwyg, formatting, tinymce, write, edit, post  
-Requires at least: 3.8  
-Tested up to: 4.1  
-Stable tag: 1.2.3  
+Requires at least: 4.1  
+Tested up to: 4.2.2  
+Stable tag: 1.3.0  
+Lisence: MIT
 
 ## Description
 
