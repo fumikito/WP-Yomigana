@@ -1,0 +1,20 @@
+{
+  "name": "fumikito/wp-yomigana",
+  "description": "A WordPress plugin for ruby tag.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Takahashi Fumiki",
+      "email": "takahashi.fumiki@hametuha.co.jp"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.3"
+  },
+  "autoload": {
+    "psr-0": {
+      "Hametuha\\Yomigana": "src/"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+!function(o){"use strict";window.WpYomiganaHelper={},o(document).ready(function(){console.log("test"),o("<p>テスト</p>").dialog({modal:!0,buttons:{Ok:function(){o(this).dialog("close")}}})})}(jQuery);
+//# sourceMappingURL=map/editor-helper.js.map

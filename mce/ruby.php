@@ -11,8 +11,8 @@ $tiny_mce_inc_dir = home_url('/wp-includes/js/tinymce/');
 	<title>{#yomigana_dlg.rubyTitle}</title>
 	<script type="text/javascript" src="<?php echo $tiny_mce_inc_dir."tiny_mce_popup.js?v=".WP_Yomigana::VERSION; ?>"></script>
 	<script type="text/javascript" src="<?php echo $tiny_mce_inc_dir."utils/form_utils.js?v=".WP_Yomigana::VERSION; ?>"></script>
-	<script type="text/javascript" src="js/ruby.js?v=<?php echo WP_Yomigana::VERSION; ?>"></script>
-	<link href="css/ruby.css?v=<?php echo WP_Yomigana::VERSION; ?>" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../assets/js/ruby.js?v=<?php echo WP_Yomigana::VERSION; ?>"></script>
+	<link href="../assets/css/ruby.css?v=<?php echo WP_Yomigana::VERSION; ?>" rel="stylesheet" type="text/css" />
 </head>
 <body onload="yomiganaManager.onLoad(yomiganaManager);">
 <form onsubmit="yomiganaManager.onSubmit(yomiganaManager);return false;" action="#">
