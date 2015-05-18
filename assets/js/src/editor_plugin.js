@@ -131,18 +131,51 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
         tooltip: WpYomigana.q,
         stateSelector: 'q',
         onClick: function(){
-            var q = editor.selection.getNode(),
+            var s = editor.selection.getNode(),
                 create = false,
-                parent, cite;
-            if( editor.dom.is(q, "q") ){
-
-            }else if( (parent = editor.dom.getParent(node, 'q') ) ){
+                text = '',
+                q, parent, cite;
+            if( editor.dom.is(s, "q") ){
+                q = s;
+                text = jQuery(q).text();
+            }else if( (parent = editor.dom.getParent(q, 'q') ) ){
                 q = parent;
+                text = jQuery(q).text();
             }else{
                 create = true;
+                text = editor.selection.getContent();
             }
-            cite = window.prompt(WpYomigana.qDesc, cite, editor.dom.getAttrib(q, 'title', ''));
-            WrapWithSimpleTag(editor, 'q');
+            cite = editor.dom.getAttrib(q, 'cite', '');
+            window.WpYomiganaHelper.q(WpYomigana.q, function(){
+                jQuery(this).find('#citeText').val(text);
+                jQuery(this).find('#citeFrom').val(cite);
+            }, function($modal, action){
+                switch( action ){
+                    case 'set':
+                        var origText = $modal.find('#citeText').val(),
+                            citeText = $modal.find('#citeFrom').val();
+                        if( create ){
+                            // This is first
+                            var newQ = document.createElement('q');
+                            newQ.appendChild(document.createTextNode(origText));
+                            newQ.cite = citeText;
+                            editor.selection.setNode(newQ);
+                        }else{
+                            // Already exist
+                            editor.dom.setAttrib(q, 'cite', citeText);
+                        }
+                        break;
+                    case 'remove':
+                        if( !create ){
+                            // Remove tag
+                            editor.dom.replace(document.createTextNode(text), q, false);
+                        }
+                        break;
+                    default:
+                        // Do nothing
+                        break;
+                }
+            });
         }
     });
 

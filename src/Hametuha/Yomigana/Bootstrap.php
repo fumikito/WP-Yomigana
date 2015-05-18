@@ -13,7 +13,12 @@ class Bootstrap extends Application
 	 * Constructor
 	 */
 	protected function __construct() {
-		// Regsiter admin menu
+		// Register script
+		$src = $this->assets.'/vendor/jquery-ui/jquery-ui.css';
+		add_action('init', function() use ($src){
+			wp_register_style('jquery-ui-mp6', $src, array(), '1.0.3');
+		}, 1000);
+		// Register admin menu
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		// Add TinyMCE plugins
@@ -155,21 +160,26 @@ class Bootstrap extends Application
 	 */
 	public function mce_helper($setting){
 		if( $setting['tinymce'] ){
-			wp_enqueue_style('jquery-ui-dialog');
+			wp_enqueue_style('jquery-ui-mp6');
 			wp_enqueue_script('wp-yomigana-editor-helper', $this->assets.'/js/dist/editor-helper.js', array('jquery-ui-dialog'), static::VERSION, true);
 			wp_localize_script('wp-yomigana-editor-helper', 'WpYomigana', array(
 				'dl'    => $this->_s('定義リスト'),
 				'dlToggle' => $this->_s('DL切替'),
 				'dtToggle' => $this->_s('dt/dd切替'),
 				'q'     => $this->_s('インライン引用'),
-				'qDesc' => $this->_s('出典を入力してください。空白の場合は設定されません。'),
+				'qForm' => $this->get_template_string('q'),
 				'small' => $this->_s('注釈'),
 				'cite'  => $this->_s('引用元'),
 				'ruby'  => $this->_s('ルビ'),
 				'imageBase' => $this->assets.'/img/dist/',
+				'close' => $this->_s('キャンセル'),
+				'ok'     => $this->_s('OK'),
+				'unwrap'     => $this->_s('削除'),
 			));
 		}
 	}
+
+
 
 	/**
 	 * TinyMCE initialization

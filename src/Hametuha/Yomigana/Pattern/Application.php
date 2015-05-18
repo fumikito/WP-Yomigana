@@ -81,13 +81,48 @@ abstract class Application extends Singleton
 	 * @param array $args
 	 */
 	protected function get_template($template, $args = array()){
-		$path = $this->dir.'/templates/'.$template.'.php';
-		if( file_exists($path) ){
+		$path = $this->search_template($template);
+		if( $path ){
 			if( $args ){
 				extract($args);
 			}
 			include $path;
 		}
+	}
+
+	/**
+	 * Load template and return string
+	 *
+	 * @param string $template
+	 * @param array $args
+	 * @return string
+	 */
+	protected function get_template_string($template, $args = array()) {
+		$path = $this->search_template($template);
+		if( $path ){
+			if( $args ){
+				extract($args);
+			}
+			ob_start();
+			include $path;
+			$content = ob_get_contents();
+			ob_end_clean();
+			return $content;
+		}else{
+			return '';
+		}
+	}
+
+	/**
+	 * Search template
+	 *
+	 * @param string $template
+	 *
+	 * @return bool|string
+	 */
+	private function search_template($template){
+		$path = $this->dir.'/templates/'.$template.'.php';
+		return file_exists($path) ? $path : false;
 	}
 
 	/**
