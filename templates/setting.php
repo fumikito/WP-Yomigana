@@ -1,5 +1,5 @@
 <?php
-/** @var Hametuha\Yomigana\Bootstrap $this */
+/** @var Hametuha\Yomigana\Admin $this */
 ?>
 <div class="wrap">
 	<h2>ルビ設定</h2>

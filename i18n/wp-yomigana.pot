@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-Yomigana\n"
+"POT-Creation-Date: 2015-05-20 02:24+0900\n"
+"PO-Revision-Date: 2015-05-20 02:24+0900\n"
+"Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
+"Language-Team: Hametuha INC. <info@hametuha.co.jp>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _s;_e\n"
+"X-Poedit-SearchPath-0: ../src\n"
+
+#: ../src/Hametuha/Yomigana/Admin.php:40
+msgid "設定が更新されました。"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Admin.php:52
+msgid "WP-Yomigana 設定"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Admin.php:52
+msgid "ルビ設定"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Admin.php:74
+msgid "設定"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:103
+msgid "定義リスト"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:104
+msgid "設定 / 解除"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:105
+msgid "用語と定義の切替"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:106
+msgid "インライン引用"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:108
+msgid "注釈"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:109
+msgid "引用元"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:110
+msgid "ルビ"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:113
+msgid "キャンセル"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:114
+msgid "OK"
+msgstr ""
+
+#: ../src/Hametuha/Yomigana/Bootstrap.php:115
+msgid "削除"
+msgstr ""

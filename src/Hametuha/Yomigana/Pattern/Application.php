@@ -74,6 +74,36 @@ abstract class Application extends Singleton
 		|| ($is_gecko && floatval(preg_replace('/.*rv:([0-9\.]+).*/u', '$1', $_SERVER['HTTP_USER_AGENT']) ) < 38 )
 		);
 	}
+
+	/**
+	 * Get specified tag's display row index
+	 *
+	 * @param string $tag
+	 *
+	 * @return int
+	 */
+	protected function get_row_index( $tag ) {
+		if ( is_string( $tag ) && isset( $this->option[ $tag ] ) && is_array( $this->option[ $tag ] ) && isset( $this->option[ $tag ][0] ) ) {
+			return (int) $this->option[ $tag ][0];
+		} else {
+			return 0;
+		}
+	}
+
+	/**
+	 * Get specified tag's display index
+	 *
+	 * @param string $tag
+	 *
+	 * @return int 0 means hidden.
+	 */
+	protected function get_column_index( $tag ) {
+		if ( is_string( $tag ) && isset( $this->option[ $tag ] ) && is_array( $this->option[ $tag ] ) && isset( $this->option[ $tag ][1] ) ) {
+			return (int) $this->option[ $tag ][1];
+		} else {
+			return 0;
+		}
+	}
 	/**
 	 * Load template
 	 *

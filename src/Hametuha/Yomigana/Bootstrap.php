@@ -4,6 +4,11 @@ namespace Hametuha\Yomigana;
 
 use Hametuha\Yomigana\Pattern\Application;
 
+/**
+ * Bootstrap Class
+ *
+ * @package Hametuha\Yomigana
+ */
 class Bootstrap extends Application
 {
 
@@ -13,14 +18,14 @@ class Bootstrap extends Application
 	 * Constructor
 	 */
 	protected function __construct() {
+		// Add i18n
+		load_plugin_textdomain(self::DOMAIN, false, 'wp-yomigana/i18n');
+		Admin::get_instance();
 		// Register script
 		$src = $this->assets.'/vendor/jquery-ui/jquery-ui.css';
 		add_action('init', function() use ($src){
 			wp_register_style('jquery-ui-mp6', $src, array(), '1.0.3');
 		}, 1000);
-		// Register admin menu
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		// Add TinyMCE plugins
 		add_filter( "mce_external_plugins", array( $this, 'register_plugins' ) );
 		// Register buttons
@@ -37,74 +42,6 @@ class Bootstrap extends Application
 		add_filter( 'wp_kses_allowed_html', array( $this, 'kses_allowed_html' ), 10, 2 );
 		// Add JS snippet to wp_head to detect non-ruby browsers
 		add_action( 'wp_head', array( $this, 'add_noruby' ), 99);
-	}
-
-	/**
-	 * Get specified tag's display row index
-	 *
-	 * @param string $tag
-	 *
-	 * @return int
-	 */
-	protected function get_row_index( $tag ) {
-		if ( is_string( $tag ) && isset( $this->option[ $tag ] ) && is_array( $this->option[ $tag ] ) && isset( $this->option[ $tag ][0] ) ) {
-			return (int) $this->option[ $tag ][0];
-		} else {
-			return 0;
-		}
-	}
-
-	/**
-	 * Get specified tag's display index
-	 *
-	 * @param string $tag
-	 *
-	 * @return int 0 means hidden.
-	 */
-	protected function get_column_index( $tag ) {
-		if ( is_string( $tag ) && isset( $this->option[ $tag ] ) && is_array( $this->option[ $tag ] ) && isset( $this->option[ $tag ][1] ) ) {
-			return (int) $this->option[ $tag ][1];
-		} else {
-			return 0;
-		}
-	}
-
-
-	/**
-	 * Add menu page
-	 */
-	public function admin_menu() {
-		add_options_page( $this->_s('WP-Yomigana 設定'), $this->_s('ルビ設定'), 'manage_options', 'ruby-options', array( $this, 'menu_page' ) );
-	}
-
-	/**
-	 * Admin action
-	 */
-	public function admin_init(){
-		if( (!defined('DOING_AJAX') || !DOING_AJAX) && isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'ruby_setting')){
-			$new_option = array();
-			foreach ( $this->option as $tag => $array ) {
-				$index        = isset( $_REQUEST[ $tag . '_index' ] ) ? absint( $_REQUEST[ $tag . '_index' ] ) : 0;
-				$column_index = isset( $_REQUEST[ $tag . '_column_index' ] ) ? absint( $_REQUEST[ $tag . '_column_index' ] ) : 0;
-				if ( $index ) {
-					$new_option[ $tag ] = array( min( $index, 4 ), $column_index );
-				} else {
-					$new_option[ $tag ] = false;
-				}
-			}
-			update_option( 'wp_yomigana_options', $new_option );
-			$message = $this->_s('設定が更新されました。');
-			add_action('admin_notices', function() use ($message){
-				printf('<div class="updated"><p>%s</p></div>', $message);
-			});
-		}
-	}
-
-	/**
-	 * Render admin screen
-	 */
-	public function menu_page() {
-		$this->get_template('setting');
 	}
 
 	/**
@@ -165,7 +102,7 @@ class Bootstrap extends Application
 			wp_localize_script('wp-yomigana-editor-helper', 'WpYomigana', array(
 				'dl'    => $this->_s('定義リスト'),
 				'dlToggle' => $this->_s('設定 / 解除'),
-				'dtToggle' => $this->_s('用語 / 定義の切替'),
+				'dtToggle' => $this->_s('用語と定義の切替'),
 				'q'     => $this->_s('インライン引用'),
 				'qForm' => $this->get_template_string('q'),
 				'small' => $this->_s('注釈'),
@@ -215,8 +152,6 @@ class Bootstrap extends Application
 				'title' => true,
 			),
 			'rt' => true,
-			'rb' => true,
-			'rp' => true,
 		) as $tag_name => $setting ){
 			if( !isset($tags[$tag_name]) ){
 				$tags[$tag_name] = $setting;
