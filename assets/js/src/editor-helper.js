@@ -16,6 +16,10 @@
                 $(WpYomigana.qForm).dialog(this.getOption(title, onOpen, callback));
             };
 
+            this.ruby = function (title, onOpen, callback) {
+                $(WpYomigana.rubyForm).dialog(this.getOption(title, onOpen, callback));
+            };
+
 
             this.getOption = function (title, onOpen, callback) {
                 return {

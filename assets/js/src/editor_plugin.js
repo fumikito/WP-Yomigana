@@ -125,7 +125,6 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
     //
     // -----------------------
     //
-
     editor.addButton('q', {
         image: WpYomigana.imageBase + 'q.png',
         tooltip: WpYomigana.q,
@@ -138,7 +137,7 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
             if( editor.dom.is(s, "q") ){
                 q = s;
                 text = jQuery(q).text();
-            }else if( (parent = editor.dom.getParent(q, 'q') ) ){
+            }else if( (parent = editor.dom.getParent(s, 'q') ) ){
                 q = parent;
                 text = jQuery(q).text();
             }else{
@@ -179,4 +178,68 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
         }
     });
 
+
+
+    //
+    // ruby Button
+    //
+    // -----------------------
+    //
+    editor.addButton('ruby', {
+        image: WpYomigana.imageBase + 'ruby.png',
+        tooltip: WpYomigana.ruby,
+        stateSelector: 'ruby',
+        onClick: function(){
+            var s = editor.selection.getNode(),
+                create = false,
+                text = '',
+                ruby, parent, rt = false, rts;
+            if( editor.dom.is(s, "ruby") ){
+                ruby = s;
+                text = ruby.firstChild.nodeValue;
+            }else if( (parent = editor.dom.getParent(s, 'ruby') ) ){
+                ruby = parent;
+                text = ruby.firstChild.nodeValue;
+            }else{
+                create = true;
+                text = editor.selection.getContent();
+            }
+            if( rts = editor.dom.select('rt', ruby) ){
+                rt = rts[0];
+            }
+            window.WpYomiganaHelper.ruby(WpYomigana.ruby, function(){
+                jQuery(this).find('#rubyBody').val(text);
+                jQuery(this).find('#rubyText').val(rt ? rt.firstChild.nodeValue : '');
+            }, function($modal, action){
+                switch( action ){
+                    case 'set':
+                        var rubyBody = $modal.find('#rubyBody').val(),
+                            rubyText = $modal.find('#rubyText').val();
+                        if( create ){
+                            // This is first
+                            var newRuby = document.createElement('ruby');
+                            newRuby.appendChild(document.createTextNode(rubyBody));
+                            var newRt = document.createElement('rt');
+                            newRt.appendChild(document.createTextNode(rubyText));
+                            newRuby.appendChild(newRt);
+                            editor.selection.setNode(newRuby);
+                        }else{
+                            // Already exist
+                            ruby.firstChild.nodeValue = rubyBody;
+                            rt.firstChild.nodeValue = rubyText;
+                        }
+                        break;
+                    case 'remove':
+                        if( !create ){
+                            // Remove tag
+                            editor.dom.replace(document.createTextNode(text), ruby, false);
+                        }
+                        break;
+                    default:
+                        // Do nothing
+                        break;
+                }
+            });
+        }
+    });
 });

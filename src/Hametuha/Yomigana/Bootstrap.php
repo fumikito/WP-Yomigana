@@ -164,13 +164,14 @@ class Bootstrap extends Application
 			wp_enqueue_script('wp-yomigana-editor-helper', $this->assets.'/js/dist/editor-helper.js', array('jquery-ui-dialog'), static::VERSION, true);
 			wp_localize_script('wp-yomigana-editor-helper', 'WpYomigana', array(
 				'dl'    => $this->_s('定義リスト'),
-				'dlToggle' => $this->_s('DL切替'),
-				'dtToggle' => $this->_s('dt/dd切替'),
+				'dlToggle' => $this->_s('設定 / 解除'),
+				'dtToggle' => $this->_s('用語 / 定義の切替'),
 				'q'     => $this->_s('インライン引用'),
 				'qForm' => $this->get_template_string('q'),
 				'small' => $this->_s('注釈'),
 				'cite'  => $this->_s('引用元'),
 				'ruby'  => $this->_s('ルビ'),
+				'rubyForm' => $this->get_template_string('ruby'),
 				'imageBase' => $this->assets.'/img/dist/',
 				'close' => $this->_s('キャンセル'),
 				'ok'     => $this->_s('OK'),
