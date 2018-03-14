@@ -35,32 +35,9 @@ abstract class Application extends Singleton {
 	);
 
 	/**
-	 * Return string
-	 *
-	 * @param string $string
-	 *
-	 * @return string|void
-	 */
-	protected function _s( $string ) {
-		if ( count( func_get_args() ) == 1 ) {
-			return __( $string, self::DOMAIN );
-		} else {
-			return __( call_user_func_array( 'sprintf', func_get_args() ), self::DOMAIN );
-		}
-	}
-
-	/**
-	 * Short hand for i18n
-	 *
-	 * @param $string
-	 */
-	protected function _e( $string ) {
-		echo call_user_func_array( array( $this, '_s' ), func_get_args() );
-	}
-
-	/**
 	 * Detect if browser supports ruby element.
 	 *
+	 * @deprecated 1.4.0
 	 * @global string $is_gecko
 	 * @global string $is_opera
 	 * @return boolean
@@ -188,5 +165,4 @@ abstract class Application extends Singleton {
 				break;
 		}
 	}
-
 }

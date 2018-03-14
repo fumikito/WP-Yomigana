@@ -45,7 +45,7 @@ class Bootstrap extends Application {
 				continue;
 			}
 			$insert_index = $this->get_column_index( $tag );
-			if ( $insert_index == 0 ) {
+			if ( 0 == $insert_index ) {
 				$new_buttons = array_merge( array( $tag ), $buttons );
 			} elseif ( $insert_index >= count( $buttons ) ) {
 				$new_buttons = array_merge( $buttons, array( $tag ) );

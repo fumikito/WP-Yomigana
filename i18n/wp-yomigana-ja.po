@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2018-03-14 15:41+0900\n"
-"PO-Revision-Date: 2018-03-14 15:48+0900\n"
+"PO-Revision-Date: 2018-03-15 02:16+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -87,7 +87,7 @@ msgstr "ルビを入力してください。"
 
 #: templates/ruby.php:8
 msgid "Parent String"
-msgstr ""
+msgstr "親文字"
 
 #: templates/setting.php:14
 #, php-format
@@ -118,7 +118,7 @@ msgstr "以下は追加されたタグの例です。スタイルはあなたの
 #: wp-yomigana.php:51
 #, php-format
 msgid "WP-Yomigana requires PHP %1$s and later, but your PHP is %2$s"
-msgstr "WP-Yomigana は PHP %1$s 以上が必須ですが、ご利用のPHPは %2$s です。"
+msgstr "WP-Yomigana は PHP %1$s 以上が必須ですが、ご利用のPHPは %2$s です"
 
 #: wp-yomigana.php:54
 #, php-format

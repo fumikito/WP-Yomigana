@@ -2,6 +2,10 @@
   "name": "fumikito/wp-yomigana",
   "description": "A WordPress plugin for ruby tag.",
   "license": "GPL-3.0-or-later",
+  "scripts": {
+    "test": "phpunit",
+    "cs": "phpcs --config-set installed_paths $(pwd)/vendor/wp-coding-standards/wpcs; phpcs --standard=phpcs.ruleset.xml $(find ./src -name '*.php')"
+  },
   "authors": [
     {
       "name": "Takahashi Fumiki",
@@ -11,6 +15,11 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8",
+    "squizlabs/php_codesniffer": "~2.8",
+    "wp-coding-standards/wpcs": "~0.11"
   },
   "autoload": {
     "psr-0": {

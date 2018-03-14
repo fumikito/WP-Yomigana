@@ -1,5 +1,6 @@
 <?php
 /** @var \Hametuha\Yomigana\Bootstrap $this */
+
 ?>
 <div>
 	<p class="description"><?php esc_html_e( 'Enter ruby annotation.', 'wp-yomigana' ) ?></p>

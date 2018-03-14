@@ -22,6 +22,10 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 - ついでにインライン引用（qタグ）、注釈（smallタグ）、定義リスト（dlタグ）、引用元（citeタグ）も入力できるようになります。
 - テキストを選択するときは慎重に！
 
+### 貢献
+
+ソースコードは[Github](https://github.com/fumikito/wp-yomigana)にホストしているので、気軽にプルリク、イシューなどお送りください。
+
 ## Installation
 
 1. ダウンロードする
