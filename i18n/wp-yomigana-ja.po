@@ -1,100 +1,89 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP-Yomigana\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2018-03-14 15:41+0900\n"
-"PO-Revision-Date: 2018-03-13 02:41+0900\n"
+"PO-Revision-Date: 2018-03-14 15:48+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
-"Language-Team: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
+"Language-Team: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.4\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: wp-yomigana.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SearchPathExcluded-1: assets\n"
-"X-Poedit-SearchPathExcluded-2: node_modules\n"
-"X-Poedit-SearchPathExcluded-3: vendor\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/Hametuha/Yomigana/Admin.php:48
 msgid "Option has been updated."
-msgstr ""
+msgstr "オプションが更新されました。"
 
 #: src/Hametuha/Yomigana/Admin.php:66
 msgid "WP-Yomigana Setting"
-msgstr ""
+msgstr "WP-Yomigana設定"
 
 #: src/Hametuha/Yomigana/Admin.php:66 templates/setting.php:6
 msgid "Ruby Setting"
-msgstr ""
+msgstr "ルビ設定"
 
 #: src/Hametuha/Yomigana/Admin.php:88
 msgid "Setting"
-msgstr ""
+msgstr "設定"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:92
 msgid "Definition List"
-msgstr ""
+msgstr "定義リスト"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:93
 msgid "Apply / Strip"
-msgstr ""
+msgstr "適用 / 解除"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:94
 msgid "Switch term and definition"
-msgstr ""
+msgstr "用語と定義を切り替え"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:95
 msgid "Inline Quote"
-msgstr ""
+msgstr "インライン引用"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:97
 msgid "Annotation"
-msgstr ""
+msgstr "注釈"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:98
 msgid "Cite"
-msgstr ""
+msgstr "引用元"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:99 templates/ruby.php:14
 msgid "Ruby"
-msgstr ""
+msgstr "ルビ"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:102
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:103
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:104
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: templates/q.php:5
 msgid "Enter source of citation. If not set, cite attribute will be empty."
-msgstr ""
+msgstr "引用元を入力してください。設定しない場合、cite属性は空になります。"
 
 #: templates/q.php:8
 msgid "Citation"
-msgstr ""
+msgstr "引用文"
 
 #: templates/q.php:14
 msgid "Source / URL"
-msgstr ""
+msgstr "引用元 / URL"
 
 #: templates/ruby.php:5
 msgid "Enter ruby annotation."
-msgstr ""
+msgstr "ルビを入力してください。"
 
 #: templates/ruby.php:8
 msgid "Parent String"
@@ -103,55 +92,55 @@ msgstr ""
 #: templates/setting.php:14
 #, php-format
 msgid "Button of %s tag"
-msgstr ""
+msgstr "%sタグのボタン"
 
 #: templates/setting.php:23
 msgid "Do not display"
-msgstr ""
+msgstr "表示しない"
 
 #: templates/setting.php:29
 #, php-format
 msgid "Display in row #%d"
-msgstr ""
+msgstr "%d行目に表示"
 
 #: templates/setting.php:34
 msgid "Priority"
-msgstr ""
+msgstr "優先順位"
 
 #: templates/setting.php:52
 msgid "Example"
-msgstr ""
+msgstr "例"
 
 #: templates/setting.php:55
 msgid "Below are examples of extended tags. Style are depends on your theme."
-msgstr ""
+msgstr "以下は追加されたタグの例です。スタイルはあなたのテーマに依存します。"
 
 #: wp-yomigana.php:51
 #, php-format
 msgid "WP-Yomigana requires PHP %1$s and later, but your PHP is %2$s"
-msgstr ""
+msgstr "WP-Yomigana は PHP %1$s 以上が必須ですが、ご利用のPHPは %2$s です。"
 
 #: wp-yomigana.php:54
 #, php-format
 msgid "WP-Yomigana's auto load file %s is not found."
-msgstr ""
+msgstr "WP-Yomigana の オートロードファイル %s が見つかりません。"
 
 #. Plugin Name of the plugin/theme
 msgid "WP-Yomigana"
-msgstr ""
+msgstr "WP-Yomigana"
 
 #. Plugin URI of the plugin/theme
 msgid "https://wordpress.org/plugins/wp-yomigana/"
-msgstr ""
+msgstr "https://wordpress.org/plugins/wp-yomigana/"
 
 #. Description of the plugin/theme
 msgid "You can enter ruby tag in visual editor."
-msgstr ""
+msgstr "ビジュアルエディターでrubyタグを入力できます。"
 
 #. Author of the plugin/theme
 msgid "Takahashi Fumiki"
-msgstr ""
+msgstr "高橋文樹"
 
 #. Author URI of the plugin/theme
 msgid "https://takahashifumiki.com"
-msgstr ""
+msgstr "https://takahashifumiki.com"
