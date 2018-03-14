@@ -1,4 +1,5 @@
 .svn
+/composer.lock
 /node_modules/
 /vendor/
 /bower_components/
