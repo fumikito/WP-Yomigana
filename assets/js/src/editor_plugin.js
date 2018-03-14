@@ -17,7 +17,7 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
      * @return {Object}
      */
     function WrapWithSimpleTag(editor, tagName){
-        var target = editor.selection.getNode(),
+        let target = editor.selection.getNode(),
             newDom;
         if( target.nodeName == tagName.toUpperCase() ){
             // If this node is small, unwrap.
@@ -41,7 +41,7 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
     //
 
     editor.addButton('dl', {
-        image: WpYomigana.imageBase + 'dl.png',
+        image: WpYomigana.imageBase + 'dl-2.png',
         type: 'splitbutton',
         tooltip: WpYomigana.dl,
         stateSelector: 'dl',
@@ -57,7 +57,7 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
             switch( e.control.settings.data ){
                 case 'toggle':
                     // Switch dt to dd, dd to dt.
-                    var node = editor.selection.getNode(),
+                    let node = editor.selection.getNode(),
                         dl   = editor.dom.getParent(node, 'dl'),
                         target, tagName, parent;
                     if( !dl ){
@@ -97,7 +97,7 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
     // -----------------------
     //
     editor.addButton('small', {
-        image: WpYomigana.imageBase + 'small.png',
+        image: WpYomigana.imageBase + 'small-2.png',
         tooltip: WpYomigana.small,
         stateSelector: 'small',
         onClick: function(){
@@ -112,7 +112,7 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
     // -----------------------
     //
     editor.addButton('cite', {
-        image: WpYomigana.imageBase + 'cite.png',
+        image: WpYomigana.imageBase + 'cite-2.png',
         tooltip: WpYomigana.cite,
         stateSelector: 'cite',
         onClick: function(){
@@ -126,11 +126,11 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
     // -----------------------
     //
     editor.addButton('q', {
-        image: WpYomigana.imageBase + 'q.png',
+        image: WpYomigana.imageBase + 'q-2.png',
         tooltip: WpYomigana.q,
         stateSelector: 'q',
         onClick: function(){
-            var s = editor.selection.getNode(),
+            let s = editor.selection.getNode(),
                 create = false,
                 text = '',
                 q, parent, cite;
@@ -151,11 +151,11 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
             }, function($modal, action){
                 switch( action ){
                     case 'set':
-                        var origText = $modal.find('#citeText').val(),
+                        let origText = $modal.find('#citeText').val(),
                             citeText = $modal.find('#citeFrom').val();
                         if( create ){
                             // This is first
-                            var newQ = document.createElement('q');
+                            let newQ = document.createElement('q');
                             newQ.appendChild(document.createTextNode(origText));
                             newQ.cite = citeText;
                             editor.selection.setNode(newQ);
@@ -186,11 +186,11 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
     // -----------------------
     //
     editor.addButton('ruby', {
-        image: WpYomigana.imageBase + 'ruby.png',
+        image: WpYomigana.imageBase + 'ruby-2.png',
         tooltip: WpYomigana.ruby,
         stateSelector: 'ruby',
         onClick: function(){
-            var s = editor.selection.getNode(),
+            let s = editor.selection.getNode(),
                 create = false,
                 text = '',
                 ruby, parent, rt = false, rts;
@@ -204,7 +204,8 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
                 create = true;
                 text = editor.selection.getContent();
             }
-            if( rts = editor.dom.select('rt', ruby) ){
+            rts = editor.dom.select('rt', ruby);
+            if(ruby && rts){
                 rt = rts[0];
             }
             window.WpYomiganaHelper.ruby(WpYomigana.ruby, function(){
@@ -213,13 +214,13 @@ tinymce.PluginManager.add('yomigana', function(editor, url) {
             }, function($modal, action){
                 switch( action ){
                     case 'set':
-                        var rubyBody = $modal.find('#rubyBody').val(),
+                        let rubyBody = $modal.find('#rubyBody').val(),
                             rubyText = $modal.find('#rubyText').val();
                         if( create ){
                             // This is first
-                            var newRuby = document.createElement('ruby');
+                            let newRuby = document.createElement('ruby');
                             newRuby.appendChild(document.createTextNode(rubyBody));
-                            var newRt = document.createElement('rt');
+                            let newRt = document.createElement('rt');
                             newRt.appendChild(document.createTextNode(rubyText));
                             newRuby.appendChild(newRt);
                             editor.selection.setNode(newRuby);

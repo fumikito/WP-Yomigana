@@ -1,7 +1,7 @@
 {
   "name": "fumikito/wp-yomigana",
   "description": "A WordPress plugin for ruby tag.",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Takahashi Fumiki",

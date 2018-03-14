@@ -3,3 +3,8 @@
 /vendor/
 /bower_components/
 .sass-cache
+/readme.txt
+assets/css
+assets/images
+assets/js/dist
+assets/img/dist

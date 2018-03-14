@@ -7,15 +7,19 @@ namespace Hametuha\Yomigana\Pattern;
  *
  * @package Hametuha\Yomigana
  */
-abstract class Singleton
-{
+abstract class Singleton {
 
+	/**
+	 * Instance holder.
+	 *
+	 * @var array
+	 */
+	protected static $instances = [];
 
-	protected static $instance;
-
-
-	protected function __construct(){
-		// Override this
+	/**
+	 * Singleton constructor.
+	 */
+	protected function __construct() {
 	}
 
 	/**
@@ -23,11 +27,12 @@ abstract class Singleton
 	 *
 	 * @return static
 	 */
-	public static function get_instance(){
-		if( !static::$instance ){
-			static::$instance = new static();
+	public static function get_instance() {
+		$class_name = get_called_class();
+		if ( ! isset( self::$instances[ $class_name ] ) ) {
+			self::$instances[ $class_name ] = new $class_name();
 		}
-		return static::$instance;
+		return self::$instances[ $class_name ];
 	}
 
 }

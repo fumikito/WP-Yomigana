@@ -2,10 +2,12 @@
 
 Contributors: Takahashi_Fumiki  
 Tags: wysiwyg, tinymce, ruby, dl, cite, q, small, css3, html5  
-Requires at least: 4.1  
-Tested up to: 4.2.2  
-Stable tag: 1.3.0  
-Lisence: MIT
+Requires at least: 4.7  
+Tested up to: 4.9.4  
+Requires PHP: 5.4  
+Stable tag: 1.4.0  
+Lisence: GPL 3.0 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Description
 
@@ -31,11 +33,20 @@ Lisence: MIT
 
 ##  Screenshots 
 
-1. ビジュアルエディタでのボタンの表示。「る」がrubyです。
+1. ビジュアルエディタでのボタンの表示。「ルビ」がrubyです。
 2. 設定画面。ビジュアルエディタのどの位置にボタンを出すか、決められます。
-3. ルビをサポートしないブラウザで編集すると、わかりやすくスタイリングされます。
 
 ## Changelog
+
+### 1.4.0
+
+- Bufgix. CSSが当たっていなかったのでパスを修正
+- Bugfix. DFWモードのときにモーダルが後ろに隠れてしまうのを調整
+- 古いファイルを削除
+- アイコンをRetina対応
+- PHPのバージョン5.4以上
+- ライセンスをGPL3.0以上に変更
+- Opear mini以外のブラウザでrubyが対応されているので、判別ロジックを削除
 
 ### 1.3.0
 

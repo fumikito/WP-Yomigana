@@ -1,73 +1,65 @@
+#, fuzzy
 msgid ""
 msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP-Yomigana\n"
-"POT-Creation-Date: 2015-05-20 02:24+0900\n"
-"PO-Revision-Date: 2015-05-20 02:24+0900\n"
+"POT-Creation-Date: 2018-03-13 02:47+0900\n"
+"PO-Revision-Date: 2018-03-13 02:41+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
-"Language-Team: Hametuha INC. <info@hametuha.co.jp>\n"
-"Language: ja\n"
+"Language-Team: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.1\n"
-"X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-yomigana.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: _s;_e\n"
-"X-Poedit-SearchPath-0: ../src\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: assets\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+"X-Poedit-SearchPathExcluded-3: vendor\n"
 
-#: ../src/Hametuha/Yomigana/Admin.php:40
-msgid "設定が更新されました。"
+#: templates/q.php:5 templates/ruby.php:5
+msgid "引用文の出典を入力してください。空白の場合は設定されません。"
 msgstr ""
 
-#: ../src/Hametuha/Yomigana/Admin.php:52
-msgid "WP-Yomigana 設定"
+#: templates/q.php:8
+msgid "引用文"
 msgstr ""
 
-#: ../src/Hametuha/Yomigana/Admin.php:52
-msgid "ルビ設定"
+#: templates/q.php:14
+msgid "出典 / URL"
 msgstr ""
 
-#: ../src/Hametuha/Yomigana/Admin.php:74
-msgid "設定"
+#: templates/ruby.php:8
+msgid "親文字"
 msgstr ""
 
-#: ../src/Hametuha/Yomigana/Bootstrap.php:103
-msgid "定義リスト"
-msgstr ""
-
-#: ../src/Hametuha/Yomigana/Bootstrap.php:104
-msgid "設定 / 解除"
-msgstr ""
-
-#: ../src/Hametuha/Yomigana/Bootstrap.php:105
-msgid "用語と定義の切替"
-msgstr ""
-
-#: ../src/Hametuha/Yomigana/Bootstrap.php:106
-msgid "インライン引用"
-msgstr ""
-
-#: ../src/Hametuha/Yomigana/Bootstrap.php:108
-msgid "注釈"
-msgstr ""
-
-#: ../src/Hametuha/Yomigana/Bootstrap.php:109
-msgid "引用元"
-msgstr ""
-
-#: ../src/Hametuha/Yomigana/Bootstrap.php:110
+#: templates/ruby.php:14
 msgid "ルビ"
 msgstr ""
 
-#: ../src/Hametuha/Yomigana/Bootstrap.php:113
-msgid "キャンセル"
+#. Plugin Name of the plugin/theme
+msgid "WP-Yomigana"
 msgstr ""
 
-#: ../src/Hametuha/Yomigana/Bootstrap.php:114
-msgid "OK"
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/wp-yomigana/"
 msgstr ""
 
-#: ../src/Hametuha/Yomigana/Bootstrap.php:115
-msgid "削除"
+#. Description of the plugin/theme
+msgid "TinyMCEでルビを入力できるようにします。"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Takahashi Fumiki"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://takahashifumiki.com"
 msgstr ""

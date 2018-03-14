@@ -10,14 +10,13 @@ namespace Hametuha\Yomigana\Pattern;
  * @property-read string $dir
  * @property-read string $assets
  */
-abstract class Application extends Singleton
-{
+abstract class Application extends Singleton {
 
 
 	/**
 	 * @const string
 	 */
-	const VERSION = '1.3.0';
+	const VERSION = '1.4.0';
 
 	/**
 	 * @const string
@@ -42,11 +41,11 @@ abstract class Application extends Singleton
 	 *
 	 * @return string|void
 	 */
-	protected function _s($string){
-		if( count(func_get_args()) == 1 ){
-			return __($string, self::DOMAIN);
-		}else{
-			return __(call_user_func_array('sprintf', func_get_args()), self::DOMAIN);
+	protected function _s( $string ) {
+		if ( count( func_get_args() ) == 1 ) {
+			return __( $string, self::DOMAIN );
+		} else {
+			return __( call_user_func_array( 'sprintf', func_get_args() ), self::DOMAIN );
 		}
 	}
 
@@ -55,8 +54,8 @@ abstract class Application extends Singleton
 	 *
 	 * @param $string
 	 */
-	protected function _e($string){
-		echo call_user_func_array(array($this, '_s'), func_get_args());
+	protected function _e( $string ) {
+		echo call_user_func_array( array( $this, '_s' ), func_get_args() );
 	}
 
 	/**
@@ -69,9 +68,10 @@ abstract class Application extends Singleton
 	protected function is_ruby_disabled() {
 		// Opera, FF < 38 don't support ruby.
 		global $is_gecko, $is_opera;
+
 		return (
 			$is_opera
-		|| ($is_gecko && floatval(preg_replace('/.*rv:([0-9\.]+).*/u', '$1', $_SERVER['HTTP_USER_AGENT']) ) < 38 )
+			|| ( $is_gecko && floatval( preg_replace( '/.*rv:([0-9\.]+).*/u', '$1', $_SERVER['HTTP_USER_AGENT'] ) ) < 38 )
 		);
 	}
 
@@ -104,17 +104,18 @@ abstract class Application extends Singleton
 			return 0;
 		}
 	}
+
 	/**
 	 * Load template
 	 *
 	 * @param string $template
 	 * @param array $args
 	 */
-	protected function get_template($template, $args = array()){
-		$path = $this->search_template($template);
-		if( $path ){
-			if( $args ){
-				extract($args);
+	protected function get_template( $template, $args = array() ) {
+		$path = $this->search_template( $template );
+		if ( $path ) {
+			if ( $args ) {
+				extract( $args );
 			}
 			include $path;
 		}
@@ -125,20 +126,22 @@ abstract class Application extends Singleton
 	 *
 	 * @param string $template
 	 * @param array $args
+	 *
 	 * @return string
 	 */
-	protected function get_template_string($template, $args = array()) {
-		$path = $this->search_template($template);
-		if( $path ){
-			if( $args ){
-				extract($args);
+	protected function get_template_string( $template, $args = array() ) {
+		$path = $this->search_template( $template );
+		if ( $path ) {
+			if ( $args ) {
+				extract( $args );
 			}
 			ob_start();
 			include $path;
 			$content = ob_get_contents();
 			ob_end_clean();
+
 			return $content;
-		}else{
+		} else {
 			return '';
 		}
 	}
@@ -150,9 +153,10 @@ abstract class Application extends Singleton
 	 *
 	 * @return bool|string
 	 */
-	private function search_template($template){
-		$path = $this->dir.'/templates/'.$template.'.php';
-		return file_exists($path) ? $path : false;
+	private function search_template( $template ) {
+		$path = $this->dir . '/templates/' . $template . '.php';
+
+		return file_exists( $path ) ? $path : false;
 	}
 
 	/**
@@ -160,22 +164,23 @@ abstract class Application extends Singleton
 	 *
 	 * @return null
 	 */
-	public function __get($name){
-		switch( $name ){
+	public function __get( $name ) {
+		switch ( $name ) {
 			case 'dir':
-				return dirname(dirname(dirname(dirname(__DIR__))));
+				return dirname( dirname( dirname( dirname( __DIR__ ) ) ) );
 				break;
 			case 'assets':
-				return untrailingslashit(plugin_dir_url($this->dir.'/assets/hoge'));
+				return untrailingslashit( plugin_dir_url( $this->dir . '/assets/hoge' ) );
 				break;
 			case 'option':
 				// Override default with saved data.
 				$saved_option = (array) get_option( 'wp_yomigana_options', array() );
 				foreach ( $this->default_option as $key => $val ) {
-					if ( !isset( $saved_option[ $key ] ) ) {
+					if ( ! isset( $saved_option[ $key ] ) ) {
 						$saved_option[ $key ] = $val;
 					}
 				}
+
 				return $saved_option;
 				break;
 			default:
