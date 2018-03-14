@@ -6,7 +6,7 @@
 	<h2><?php esc_html_e( 'Ruby Setting', 'wp-yomigana' ) ?></h2>
 
 	<form method="post">
-		<?php wp_nonce_field( 'ruby_setting' );?>
+		<?php wp_nonce_field( 'ruby_setting', '_wpyomigananonce' );?>
 		<table class="form-table">
 			<tbody>
 			<?php foreach ( $this->option as $tag => $setting ): ?>
@@ -57,7 +57,7 @@
 
 	<?php foreach ( [
 		'ruby'  => '<ruby>鏖<rt>みなごろし</rt></ruby>のような難しい漢字にはルビを振ります。<ruby>聖剣<rt>エクスカリバー</rt></ruby>のようなグループルビも可能です。',
-		'small' => 'smallタグは注釈として機能します。<small>※HTML5までは単に「小さい」という意味でしたが、注釈が追加されました。</small>',
+		'small' => 'smallタグは注釈として機能します。<small>※HTML5になる前は単に「小さい」という意味でしたが、注釈が追加されました。</small>',
 		'q,cite'     => 'qタグはインライン引用として、citeタグは引用元を示すために使います。<cite>ウィトゲンシュタイン『論理哲学論考』</cite>によれば、<q>語り得ぬものについては沈黙せねばならない</q>そうです。',
 	] as $tag => $html ) : ?>
 		<div class="yomigana-example">

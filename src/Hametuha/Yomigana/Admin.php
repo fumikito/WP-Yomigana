@@ -31,7 +31,7 @@ class Admin extends Application {
 		if ( defined( 'DOING_AJAX' ) && DOING_CRON ) {
 			return;
 		}
-		if ( ! isset( $_POST['_wpnonce'] ) && ! wp_verify_nonce( $_POST['_wpnonce'], 'ruby_setting' ) ) {
+		if ( ! isset( $_POST['_wpyomigananonce'] ) || ! wp_verify_nonce( $_POST['_wpyomigananonce'], 'ruby_setting' ) ) {
 			return;
 		}
 		$new_option = array();

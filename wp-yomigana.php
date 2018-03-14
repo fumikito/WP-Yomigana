@@ -3,7 +3,7 @@
 Plugin Name: WP-Yomigana
 Plugin URI: https://wordpress.org/plugins/wp-yomigana/
 Description: You can enter ruby tag in visual editor.
-Version: 2.0.0
+Version: 1.4.0
 PHP Version: 5.4
 Author: Takahashi Fumiki
 Author URI: https://takahashifumiki.com
