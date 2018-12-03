@@ -13,12 +13,15 @@
   "author": "Hametuha inc.",
   "license": "GPL-3.0",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-transform-react-jsx": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@wordpress/keycodes": "^2.0.0",
+    "babel-loader": "^8.0.2",
     "event-stream": "^3.3.4",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-babel": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-changed": "^3.2.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-jshint": "^2.1.0",
@@ -30,8 +33,11 @@
     "gulp-uglify": "^3.0.0",
     "imagemin-pngquant": "^5.0.1",
     "jquery-ui-mp6": "^1.0.2",
-    "jshint": "^2.9.5",
+    "jshint": "^2.9.6",
     "jshint-stylish": "^2.2.1",
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.9.3",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^4.19.1",
+    "webpack-stream": "^5.1.1"
   }
 }

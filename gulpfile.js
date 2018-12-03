@@ -1,11 +1,14 @@
-var gulp     = require('gulp'),
-    $        = require('gulp-load-plugins')(),
-    pngquant = require('imagemin-pngquant'),
-    eventStream = require('event-stream');
+const gulp          = require('gulp');
+const $             = require('gulp-load-plugins')();
+const pngquant      = require('imagemin-pngquant');
+const eventStream   = require('event-stream');
+const webpack       = require('webpack-stream');
+const webpackBundle = require('webpack');
+const named         = require('vinyl-named');
 
 
 // Sassのタスク
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   return gulp.src(['./assets/scss/**/*.scss'])
     .pipe($.plumber({
       errorHandler: $.notify.onError('<%= error.message %>')
@@ -30,7 +33,7 @@ gulp.task('sass', function () {
 
 
 // Minify
-gulp.task('js', function () {
+gulp.task('js', () => {
   return gulp.src(['./assets/js/src/**/*.js'])
     .pipe($.plumber({
       errorHandler: $.notify.onError('<%= error.message %>')
@@ -39,7 +42,7 @@ gulp.task('js', function () {
       loadMaps: true
     }))
     .pipe($.babel({
-      presets: ['env']
+      presets: ['@babel/env']
     }))
     .pipe($.uglify({
       output:{
@@ -50,8 +53,37 @@ gulp.task('js', function () {
     .pipe(gulp.dest('./assets/js/dist/'));
 });
 
+// Compile babel
+gulp.task('jsx', () => {
+  return gulp.src(['./assets/js/src/**/*.jsx'])
+    .pipe($.plumber({
+      errorHandler: $.notify.onError('<%= error.message %>')
+    }))
+    .pipe(named())
+    .pipe(webpack({
+      mode: 'production',
+      devtool: 'source-map',
+      module: {
+        rules: [
+          {
+            test: /\.jsx$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env'],
+                plugins: ['@babel/plugin-transform-react-jsx']
+              }
+            }
+          }
+        ]
+      }
+    }, webpackBundle))
+    .pipe(gulp.dest('./assets/js/dist/'));
+});
+
 // JS Hint
-gulp.task('jshint', function () {
+gulp.task('jshint', () => {
   return gulp.src(['./assets/js/src/**/*.js'])
     .pipe($.jshint('./assets/.jshintrc'))
     .pipe($.jshint.reporter('jshint-stylish'));
@@ -59,8 +91,7 @@ gulp.task('jshint', function () {
 
 
 // images
-gulp.task('images', function () {
-  gulp.src('./assets/img/src/**/*.{gif,png,jpg}')
+gulp.task('images', () => gulp.src('./assets/img/src/**/*.{gif,png,jpg}')
     .pipe($.plumber({
       errorHandler: $.notify.onError('<%= error.message %>')
     }))
@@ -70,28 +101,27 @@ gulp.task('images', function () {
       svgoPlugins      : [{removeViewBox: false}],
       use              : [pngquant()]
     }))
-    .pipe(gulp.dest('./assets/img/dist'));
-});
+    .pipe(gulp.dest('./assets/img/dist')
+));
 
 // Copy library
-gulp.task('copyLib', function(){
-  return eventStream.merge(
+gulp.task('copyLib', () => eventStream.merge(
     gulp.src('./node_modules/jquery-ui-mp6/src/css/**/*')
       .pipe(gulp.dest('./assets/css')),
     gulp.src('./node_modules/jquery-ui-mp6/src/images/**/*')
       .pipe(gulp.dest('./assets/images'))
-  );
-});
+));
 
 // watch
 gulp.task('watch', function () {
   gulp.watch('assets/scss/**/*.scss', ['sass']);
   gulp.watch('assets/js/src/**/*.js', ['js', 'jshint']);
+  gulp.watch('assets/js/src/**/*.jsx', ['jsx']);
   gulp.watch('assets/img/src/**/*.{gif,png,jpg}', ['images']);
 });
 
 // Build
-gulp.task('build', ['jshint', 'copyLib', 'js', 'sass', 'images']);
+gulp.task('build', ['jshint', 'copyLib', 'js', 'jsx', 'sass', 'images']);
 
 // Default Tasks
 gulp.task('default', ['watch']);
