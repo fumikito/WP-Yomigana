@@ -23,7 +23,7 @@ registerBlockType( 'wp-yomigana/dl', {
   keywords: [],
 
   edit({attributes, className}){
-    const allowedBlocks = [ 'wp-yomigana/term' ];
+    const allowedBlocks = [ 'wp-yomigana/term', 'wp-yomigana/description' ];
     return (
       <div className={className}>
         <InnerBlocks allowedBlocks={allowedBlocks} templateLock={false} />
