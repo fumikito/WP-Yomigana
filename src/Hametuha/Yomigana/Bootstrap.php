@@ -17,6 +17,7 @@ class Bootstrap extends Application {
 	 */
 	protected function __construct() {
 		Admin::get_instance();
+		Gutenberg::get_instance();
 		// Add TinyMCE plugins.
 		add_filter( 'mce_external_plugins', [ $this, 'register_plugins' ] );
 		// Register buttons.
