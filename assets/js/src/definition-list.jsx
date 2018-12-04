@@ -1,11 +1,10 @@
 const { registerBlockType } = wp.blocks;
 const { InnerBlocks } = wp.editor;
-
-/* global YomiganaDl: false */
+const { __ } = wp.i18n;
 
 registerBlockType( 'wp-yomigana/dl', {
 
-  title: YomiganaDl.label,
+  title: __( 'Definition List', 'wp-yomigana' ),
 
   icon: (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
@@ -38,4 +37,5 @@ registerBlockType( 'wp-yomigana/dl', {
       </dl>
     )
   }
+
 } );

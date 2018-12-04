@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-03-14 15:41+0900\n"
-"PO-Revision-Date: 2018-03-15 02:16+0900\n"
+"POT-Creation-Date: 2018-12-04 18:44+0900\n"
+"PO-Revision-Date: 2018-12-04 19:51+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "Language-Team: \n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -29,43 +29,44 @@ msgstr "ルビ設定"
 msgid "Setting"
 msgstr "設定"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:92
+#: src/Hametuha/Yomigana/Bootstrap.php:93 assets/js/src/definition-list.jsx:7
 msgid "Definition List"
 msgstr "定義リスト"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:93
+#: src/Hametuha/Yomigana/Bootstrap.php:94
 msgid "Apply / Strip"
 msgstr "適用 / 解除"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:94
+#: src/Hametuha/Yomigana/Bootstrap.php:95
 msgid "Switch term and definition"
 msgstr "用語と定義を切り替え"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:95
+#: src/Hametuha/Yomigana/Bootstrap.php:96
 msgid "Inline Quote"
 msgstr "インライン引用"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:97
+#: src/Hametuha/Yomigana/Bootstrap.php:98
 msgid "Annotation"
 msgstr "注釈"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:98
+#: src/Hametuha/Yomigana/Bootstrap.php:99
 msgid "Cite"
 msgstr "引用元"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:99 templates/ruby.php:14
+#: src/Hametuha/Yomigana/Bootstrap.php:100 templates/ruby.php:15
+#: assets/js/src/wp-yomigana-gutenberg.jsx:16
 msgid "Ruby"
 msgstr "ルビ"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:102
+#: src/Hametuha/Yomigana/Bootstrap.php:103
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:103
+#: src/Hametuha/Yomigana/Bootstrap.php:104
 msgid "OK"
 msgstr "OK"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:104
+#: src/Hametuha/Yomigana/Bootstrap.php:105
 msgid "Delete"
 msgstr "削除"
 
@@ -81,11 +82,11 @@ msgstr "引用文"
 msgid "Source / URL"
 msgstr "引用元 / URL"
 
-#: templates/ruby.php:5
+#: templates/ruby.php:6
 msgid "Enter ruby annotation."
 msgstr "ルビを入力してください。"
 
-#: templates/ruby.php:8
+#: templates/ruby.php:9
 msgid "Parent String"
 msgstr "親文字"
 
@@ -124,6 +125,18 @@ msgstr "WP-Yomigana は PHP %1$s 以上が必須ですが、ご利用のPHPは %
 #, php-format
 msgid "WP-Yomigana's auto load file %s is not found."
 msgstr "WP-Yomigana の オートロードファイル %s が見つかりません。"
+
+#: assets/js/src/definition-description.jsx:8
+msgid "Description"
+msgstr "説明"
+
+#: assets/js/src/definition-term.jsx:7
+msgid "Term"
+msgstr "用語"
+
+#: assets/js/src/wp-yomigana-gutenberg.jsx:28
+msgid "Span"
+msgstr "スパン"
 
 #. Plugin Name of the plugin/theme
 msgid "WP-Yomigana"

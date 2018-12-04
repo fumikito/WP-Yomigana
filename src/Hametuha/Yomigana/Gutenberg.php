@@ -25,20 +25,24 @@ class Gutenberg extends Application {
 	 */
 	public function register_script() {
 		// Register DL.
-		wp_register_script( 'wp-yomigana-dl', $this->assets . '/js/dist/definition-list.js', [ 'wp-blocks', 'wp-editor' ], self::VERSION, true );
-		wp_localize_script( 'wp-yomigana-dl', 'YomiganaDl', [
-			'label' => __( 'Definition List', 'wp-yomigana' ),
-		] );
-		wp_register_style( 'wp-yomigana-dl', $this->assets . '/css/editor-dl.css', [], self::VERSION );
+		wp_register_script( 'wp-yomigana-dl', $this->assets . '/js/dist/definition-list.js', [ 'wp-blocks', 'wp-editor', 'wp-i18n' ], self::VERSION, true );
+		wp_register_style( 'wp-yomigana-dl', $this->assets . '/css/editor-dl.css', [ 'wp-blocks' ], self::VERSION );
 		// Register dt
-		wp_register_script( 'wp-yomigana-dt', $this->assets . '/js/dist/definition-term.js', [ 'wp-blocks', 'wp-editor' ], self::VERSION, true );
-		wp_localize_script( 'wp-yomigana-dt', 'YomiganaDt', [
-			'label' => __( 'Term', 'wp-yomigana' ),
-		] );
-		wp_register_script( 'wp-yomigana-dd', $this->assets . '/js/dist/definition-description.js', [ 'wp-blocks', 'wp-editor' ], self::VERSION, true );
-		wp_localize_script( 'wp-yomigana-dd', 'YomiganaDd', [
-			'label' => __( 'Description', 'wp-yomigana' ),
-		] );
+		wp_register_script( 'wp-yomigana-dt', $this->assets . '/js/dist/definition-term.js', [ 'wp-yomigana-dl' ], self::VERSION, true );
+		// Register dd
+		wp_register_script( 'wp-yomigana-dd', $this->assets . '/js/dist/definition-description.js', [ 'wp-yomigana-dl' ], self::VERSION, true );
+		// Register translation.
+		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
+			$json = json_encode( gutenberg_get_jed_locale_data( 'wp-yomigana' ) );
+			wp_add_inline_script(
+				'wp-yomigana-dl',
+				sprintf( 'wp.i18n.setLocaleData(  %s, "wp-yomigana" );', $json ),
+				'before'
+			);
+		}
+		if ( function_exists( 'wp_set_script_translations' ) ) {
+			wp_set_script_translations( 'wp-yomigana-dl', 'wp-yomigana' );
+		}
 	}
 
 	/**
