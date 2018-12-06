@@ -3,9 +3,9 @@
 Contributors: Takahashi_Fumiki  
 Tags: wysiwyg, tinymce, ruby, dl, cite, q, small, css3, html5  
 Requires at least: 4.7  
-Tested up to: 4.9.4  
+Tested up to: 5.0-RC3  
 Requires PHP: 5.4  
-Stable tag: 1.4.0  
+Stable tag: 2.0.0  
 Lisence: GPL 3.0 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -18,7 +18,6 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 ### このプラグインの機能
 
 - ビジュアルエディタにルビボタンを追加します。テキストを選択してルビボタンをクリックすると、ルビが入力できます。
-- ルビをサポートしないブラウザの場合はJavascriptによってhtmlタグにno-rubyクラスを追加します。スタイリングの詳細は管理画面を見てください。
 - ついでにインライン引用（qタグ）、注釈（smallタグ）、定義リスト（dlタグ）、引用元（citeタグ）も入力できるようになります。
 - テキストを選択するときは慎重に！
 
@@ -41,6 +40,11 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 2. 設定画面。ビジュアルエディタのどの位置にボタンを出すか、決められます。
 
 ## Changelog
+
+
+### 2.0.0
+
+- Gutenbergに対応
 
 ### 1.4.0
 

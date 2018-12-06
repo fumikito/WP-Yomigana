@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2018-12-04 18:44+0900\n"
-"PO-Revision-Date: 2018-12-04 19:51+0900\n"
+"POT-Creation-Date: 2018-12-06 21:23+0900\n"
+"PO-Revision-Date: 2018-12-06 21:24+0900\n"
 "Last-Translator: Takahashi Fumiki <takahashi.fumiki@hametuha.co.jp>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -41,20 +41,22 @@ msgstr "適用 / 解除"
 msgid "Switch term and definition"
 msgstr "用語と定義を切り替え"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:96
+#: src/Hametuha/Yomigana/Bootstrap.php:96 assets/js/src/formats/_quote.jsx:9
 msgid "Inline Quote"
 msgstr "インライン引用"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:98
+#: src/Hametuha/Yomigana/Bootstrap.php:98 assets/js/src/formats/_small.jsx:9
+#: assets/js/src/formats/_small.jsx:28
 msgid "Annotation"
 msgstr "注釈"
 
-#: src/Hametuha/Yomigana/Bootstrap.php:99
+#: src/Hametuha/Yomigana/Bootstrap.php:99 assets/js/src/formats/_cite.jsx:8
+#: assets/js/src/formats/_cite.jsx:29
 msgid "Cite"
 msgstr "引用元"
 
 #: src/Hametuha/Yomigana/Bootstrap.php:100 templates/ruby.php:15
-#: assets/js/src/wp-yomigana-gutenberg.jsx:16
+#: assets/js/src/formats/_ruby.jsx:23 assets/js/src/formats/_ruby.jsx:67
 msgid "Ruby"
 msgstr "ルビ"
 
@@ -126,17 +128,29 @@ msgstr "WP-Yomigana は PHP %1$s 以上が必須ですが、ご利用のPHPは %
 msgid "WP-Yomigana's auto load file %s is not found."
 msgstr "WP-Yomigana の オートロードファイル %s が見つかりません。"
 
-#: assets/js/src/definition-description.jsx:8
+#: assets/js/src/definition-description.jsx:9
 msgid "Description"
 msgstr "説明"
 
-#: assets/js/src/definition-term.jsx:7
+#: assets/js/src/definition-term.jsx:8
 msgid "Term"
 msgstr "用語"
 
-#: assets/js/src/wp-yomigana-gutenberg.jsx:28
-msgid "Span"
-msgstr "スパン"
+#: assets/js/src/formats/_quote.jsx:24
+msgid "Enter source information(optional)"
+msgstr "引用元を入力してください（オプション）"
+
+#: assets/js/src/formats/_quote.jsx:45
+msgid "Inline Quotation"
+msgstr "インライン引用"
+
+#: assets/js/src/formats/_ruby.jsx:9
+msgid "Ruby Character"
+msgstr "ルビ文字"
+
+#: assets/js/src/formats/_ruby.jsx:34
+msgid "Enter ruby characters"
+msgstr "ルビを入力してください。"
 
 #. Plugin Name of the plugin/theme
 msgid "WP-Yomigana"
@@ -157,3 +171,6 @@ msgstr "高橋文樹"
 #. Author URI of the plugin/theme
 msgid "https://takahashifumiki.com"
 msgstr "https://takahashifumiki.com"
+
+#~ msgid "Span"
+#~ msgstr "スパン"
