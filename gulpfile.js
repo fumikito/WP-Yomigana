@@ -55,7 +55,10 @@ gulp.task('js', () => {
 
 // Compile babel
 gulp.task('jsx', () => {
-  return gulp.src(['./assets/js/src/**/*.jsx'])
+  return gulp.src([
+    './assets/js/src/**/*.jsx',
+    '!./assets/js/src/**/_*.jsx'
+  ])
     .pipe($.plumber({
       errorHandler: $.notify.onError('<%= error.message %>')
     }))
@@ -63,6 +66,9 @@ gulp.task('jsx', () => {
     .pipe(webpack({
       mode: 'production',
       devtool: 'source-map',
+      resolve: {
+        extensions:  ['.js', '.jsx']
+      },
       module: {
         rules: [
           {

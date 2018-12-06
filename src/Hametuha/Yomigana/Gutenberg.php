@@ -16,14 +16,23 @@ class Gutenberg extends Application {
 	 * Constructor
 	 */
 	protected function __construct() {
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
 		add_action( 'init', [ $this, 'register_script' ], 10 );
 		add_action( 'init', [ $this, 'register_block' ], 11 );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'block_editor_assets' ] );
 	}
 
 	/**
 	 * Register scripts.
 	 */
 	public function register_script() {
+		// Ruby, etc
+		wp_register_script( 'wp-yomigana-gutenberg', $this->assets . '/js/dist/wp-yomigana-gutenberg.js', [
+			'wp-element', 'wp-editor', 'wp-i18n',
+			'wp-rich-text', 'wp-compose','wp-components',
+		], self::VERSION, true );
 		// Register DL.
 		wp_register_script( 'wp-yomigana-dl', $this->assets . '/js/dist/definition-list.js', [ 'wp-blocks', 'wp-editor', 'wp-i18n' ], self::VERSION, true );
 		wp_register_style( 'wp-yomigana-dl', $this->assets . '/css/editor-dl.css', [ 'wp-blocks' ], self::VERSION );
@@ -32,7 +41,11 @@ class Gutenberg extends Application {
 		// Register dd
 		wp_register_script( 'wp-yomigana-dd', $this->assets . '/js/dist/definition-description.js', [ 'wp-yomigana-dl' ], self::VERSION, true );
 		// Register translation.
-		if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
+		if ( function_exists( 'wp_set_script_translations' ) ) {
+			// For WordPress 5.0
+			wp_set_script_translations( 'wp-yomigana-dl', 'wp-yomigana' );
+		} else if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
+			// For gutenberg only.
 			$json = json_encode( gutenberg_get_jed_locale_data( 'wp-yomigana' ) );
 			wp_add_inline_script(
 				'wp-yomigana-dl',
@@ -40,18 +53,12 @@ class Gutenberg extends Application {
 				'before'
 			);
 		}
-		if ( function_exists( 'wp_set_script_translations' ) ) {
-			wp_set_script_translations( 'wp-yomigana-dl', 'wp-yomigana' );
-		}
 	}
 
 	/**
 	 * Register gutenberg block.
 	 */
 	public function register_block() {
-		if ( ! function_exists( 'register_block_type' ) ) {
-			return;
-		}
 		register_block_type( 'wp-yomigana/dl', [
 			'editor_style'  => 'wp-yomigana-dl',
 			'editor_script' => 'wp-yomigana-dl',
@@ -62,5 +69,12 @@ class Gutenberg extends Application {
 		register_block_type( 'wp-yomigana/dd', [
 			'editor_script' => 'wp-yomigana-dd',
 		] );
+	}
+
+	/**
+	 * Enqueue assets for ruby, small, q, cite.
+	 */
+	public function block_editor_assets() {
+		wp_enqueue_script( 'wp-yomigana-gutenberg' );
 	}
 }

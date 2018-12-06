@@ -13,3 +13,21 @@
   }
 
 }
+
+
+.editor-writing-flow{
+
+  q:before {
+    content: "\201C";
+    html[lang=ja] &{
+      content: "「";
+    }
+  }
+  q:after{
+    content: "\201D";
+    html[lang=ja] &{
+      content: "」";
+    }
+  }
+
+}
