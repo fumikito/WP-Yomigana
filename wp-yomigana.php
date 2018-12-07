@@ -3,13 +3,13 @@
 Plugin Name: WP-Yomigana
 Plugin URI: https://wordpress.org/plugins/wp-yomigana/
 Description: You can enter ruby tag in visual editor.
-Version: 2.0.0
+Version: 2.0.1
 PHP Version: 5.4
 Author: Takahashi Fumiki
 Author URI: https://takahashifumiki.com
 License: GPL 3.0 or later
 Text Domain: wp-yomigana
-Domain Path: /i18n/
+Domain Path: /languages
 
 This plugins owes a lot to TinyMCE Advanced, a WordPress plugin(http://wordpress.org/extend/plugins/tinymce-advanced/).
 
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || die();
  */
 function yomigana_init() {
 	// Register i18n.
-	load_plugin_textdomain( 'wp-yomigana', false, basename( dirname( __FILE__ ) ) . '/i18n' );
+	load_plugin_textdomain( 'wp-yomigana', false, basename( dirname( __FILE__ ) ) . '/languages' );
 	// Check error.
 	$auto_loader = yomigana_error();
 	if ( is_wp_error( $auto_loader ) ) {

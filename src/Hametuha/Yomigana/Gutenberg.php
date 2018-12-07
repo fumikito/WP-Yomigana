@@ -30,7 +30,7 @@ class Gutenberg extends Application {
 	public function register_script() {
 		// Ruby, etc
 		wp_register_script( 'wp-yomigana-gutenberg', $this->assets . '/js/dist/wp-yomigana-gutenberg.js', [
-			'wp-element', 'wp-editor', 'wp-i18n',
+			'wp-element', 'wp-editor', 'wp-i18n', 'hamazon-editor',
 			'wp-rich-text', 'wp-compose','wp-components',
 		], self::VERSION, true );
 		// Register DL.
@@ -43,7 +43,7 @@ class Gutenberg extends Application {
 		// Register translation.
 		if ( function_exists( 'wp_set_script_translations' ) ) {
 			// For WordPress 5.0
-			wp_set_script_translations( 'wp-yomigana-dl', 'wp-yomigana' );
+			wp_set_script_translations( 'wp-yomigana-dl', 'wp-yomigana', plugin_dir_path( dirname( dirname( __DIR__ ) ) ) . 'languages' );
 		} else if ( function_exists( 'gutenberg_get_jed_locale_data' ) ) {
 			// For gutenberg only.
 			$json = json_encode( gutenberg_get_jed_locale_data( 'wp-yomigana' ) );

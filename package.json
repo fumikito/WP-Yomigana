@@ -8,7 +8,8 @@
     "start": "gulp build && gulp watch ",
     "watch": "gulp watch ",
     "gulp": "gulp",
-    "package": "gulp build"
+    "package": "gulp build",
+    "translate": "po2json languages/wp-yomigana-ja.po languages/wp-yomigana-ja-wp-yomigana-dl.json -f jed"
   },
   "author": "Hametuha inc.",
   "license": "GPL-3.0",
@@ -36,6 +37,7 @@
     "jshint": "^2.9.6",
     "jshint-stylish": "^2.2.1",
     "node-sass": "^4.9.3",
+    "po2json": "^1.0.0-alpha",
     "vinyl-named": "^1.1.0",
     "webpack": "^4.19.1",
     "webpack-stream": "^5.1.1"

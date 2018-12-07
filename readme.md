@@ -3,9 +3,9 @@
 Contributors: Takahashi_Fumiki  
 Tags: wysiwyg, tinymce, ruby, dl, cite, q, small, css3, html5  
 Requires at least: 4.7  
-Tested up to: 5.0-RC3  
+Tested up to: 5.0  
 Requires PHP: 5.4  
-Stable tag: 2.0.0  
+Stable tag: 2.0.1  
 Lisence: GPL 3.0 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -41,6 +41,9 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Changelog
 
+### 2.0.1
+
+- JavaScript翻訳のやり方が間違っていたので修正。
 
 ### 2.0.0
 
