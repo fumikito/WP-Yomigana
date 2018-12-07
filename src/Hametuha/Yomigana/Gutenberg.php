@@ -30,7 +30,7 @@ class Gutenberg extends Application {
 	public function register_script() {
 		// Ruby, etc
 		wp_register_script( 'wp-yomigana-gutenberg', $this->assets . '/js/dist/wp-yomigana-gutenberg.js', [
-			'wp-element', 'wp-editor', 'wp-i18n', 'hamazon-editor',
+			'wp-element', 'wp-editor', 'wp-i18n',
 			'wp-rich-text', 'wp-compose','wp-components',
 		], self::VERSION, true );
 		// Register DL.
