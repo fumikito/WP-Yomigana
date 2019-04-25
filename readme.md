@@ -5,7 +5,7 @@ Tags: wysiwyg, tinymce, ruby, dl, cite, q, small, css3, html5
 Requires at least: 4.7  
 Tested up to: 5.0  
 Requires PHP: 5.4  
-Stable tag: 2.0.2  
+Stable tag: 2.0.3  
 Lisence: GPL 3.0 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -40,6 +40,11 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 2. 設定画面。ビジュアルエディタのどの位置にボタンを出すか、決められます。
 
 ## Changelog
+
+### 2.0.3
+
+- Ajaxリクエストにおけるエラーを修正。
+- DLのスタイルシートが反映されなかったので修正。
 
 ### 2.0.2
 

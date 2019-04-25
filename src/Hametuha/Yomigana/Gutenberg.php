@@ -35,7 +35,7 @@ class Gutenberg extends Application {
 		], self::VERSION, true );
 		// Register DL.
 		wp_register_script( 'wp-yomigana-dl', $this->assets . '/js/dist/definition-list.js', [ 'wp-blocks', 'wp-editor', 'wp-i18n' ], self::VERSION, true );
-		wp_register_style( 'wp-yomigana-dl', $this->assets . '/css/editor-dl.css', [ 'wp-blocks' ], self::VERSION );
+		wp_register_style( 'wp-yomigana-dl', $this->assets . '/css/editor-dl.css', [ 'wp-editor' ], self::VERSION );
 		// Register dt
 		wp_register_script( 'wp-yomigana-dt', $this->assets . '/js/dist/definition-term.js', [ 'wp-yomigana-dl' ], self::VERSION, true );
 		// Register dd

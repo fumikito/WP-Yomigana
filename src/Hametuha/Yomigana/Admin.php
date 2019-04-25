@@ -28,7 +28,7 @@ class Admin extends Application {
 	 * Admin action
 	 */
 	public function admin_init() {
-		if ( defined( 'DOING_AJAX' ) && DOING_CRON ) {
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return;
 		}
 		if ( ! isset( $_POST['_wpyomigananonce'] ) || ! wp_verify_nonce( $_POST['_wpyomigananonce'], 'ruby_setting' ) ) {
