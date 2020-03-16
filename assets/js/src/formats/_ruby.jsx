@@ -1,5 +1,5 @@
 const { Fragment } = wp.element;
-const { __ } = wp.i18n;
+const { __, sprintf } = wp.i18n;
 const { toggleFormat, registerFormatType, insert, applyFormat } = wp.richText;
 const { RichTextToolbarButton, RichTextShortcut } = wp.editor;
 const { SVG, Path } = wp.components;
@@ -52,7 +52,8 @@ registerFormatType( 'wp-yomigana/ruby', {
     };
 
     // @see keycodes/src/index.js
-    const shortcutType = 'primaryShift';
+    // Command + Alt + r
+    const shortcutType = 'primaryAlt';
     const shortcutCharacter ='r';
     const icon = (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
@@ -61,10 +62,11 @@ registerFormatType( 'wp-yomigana/ruby', {
         <circle cx="179" cy="47" r="23"/>
       </svg>
     );
+    const shortcut = sprintf( '(%s+Alt+R)', /(MAC|IP)/.test( navigator.platform.toUpperCase() ) ? '⌘' : 'Ctrl' );
     return (
       <Fragment>
         <RichTextShortcut type={shortcutType} character={shortcutCharacter} onUse={onToggle}  />
-        <RichTextToolbarButton icon={icon} title={__( 'Ruby', 'wp-yomigana' )} onClick={onToggle}
+        <RichTextToolbarButton icon={icon} title={ __( 'Ruby', 'wp-yomigana' ) + ' (⌘+Alt+R)' } onClick={onToggle}
                                isActive={isActive} shorcutType={shortcutType} shorcutCharacter={shortcutCharacter} />
       </Fragment>
     )

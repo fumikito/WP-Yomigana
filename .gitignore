@@ -1,4 +1,5 @@
 .svn
+/package-lock.json
 /composer.lock
 /node_modules/
 /vendor/
