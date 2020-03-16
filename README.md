@@ -1,7 +1,7 @@
 # WP-Yomigana
 
 Contributors: Takahashi_Fumiki  
-Tags: wysiwyg, tinymce, ruby, dl, cite, q, small, css3, html5  
+Tags: wysiwyg, tinymce, ruby, dl, cite, q, small, css3, html5, block-editor  
 Requires at least: 5.0  
 Tested up to: 5.3  
 Requires PHP: 5.6  
@@ -11,13 +11,14 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 ## Description
 
-このプラグインはWordPressのwysiwygエディターであるTinyMCEにrubyタグを入力する機能を追加します。
+このプラグインはWordPressのエディターにrubyタグを入力する機能を追加します。
 
 **For Non-Japanese Speaker** This plugin enable `ruby` tag which is not a programming language but [Japanese bilinear writing system](http://dev.w3.org/csswg/css-ruby-1/). If you are not Japanese speaker, `ruby` won't matter. But this plugin also enables some utility buttons to your Visual Editor. Do you need `dl`, `small`, `cite` or `q` tags? Try this plugin!
 
 ### このプラグインの機能
 
-- ビジュアルエディタにルビボタンを追加します。テキストを選択してルビボタンをクリックすると、ルビが入力できます。
+- ブロックエディターにルビ入力機能を追加します。テキストを選択して、プルダウンもしくはショートカット `⌘(Ctrl) + Alt + R` でルビを入力。
+- TinyMCE（クラシックエディター）にも対応。
 - ついでにインライン引用（qタグ）、注釈（smallタグ）、定義リスト（dlタグ）、引用元（citeタグ）も入力できるようになります。
 - テキストを選択するときは慎重に！
 
@@ -36,10 +37,16 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 ##  Screenshots 
 
-1. ビジュアルエディタでのボタンの表示。「ルビ」がrubyです。
+1. ブロックエディターではプルダウンに「ルビ」があります。
 2. 設定画面。ビジュアルエディタのどの位置にボタンを出すか、決められます。
+3. クラシックエディターでも使えます。
 
 ## Changelog
+
+### 2.1.0
+
+- AMPプラグインと同時に使った時のエラーを抑制。
+- ショートカットを `⌘ + Shift + R` から 変更。
 
 ### 2.0.3
 
