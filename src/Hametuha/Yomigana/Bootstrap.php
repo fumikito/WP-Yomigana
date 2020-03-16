@@ -136,13 +136,13 @@ class Bootstrap extends Application {
 	public function kses_allowed_html( $tags, $context ) {
 		foreach (
 			array(
-				'ruby' => array(
+				'ruby' => [
 					'id'    => true,
 					'name'  => true,
 					'class' => true,
 					'title' => true,
-				),
-				'rt'   => true,
+				],
+				'rt'   => [],
 			) as $tag_name => $setting
 		) {
 			if ( ! isset( $tags[ $tag_name ] ) ) {
